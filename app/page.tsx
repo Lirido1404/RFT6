@@ -66,9 +66,11 @@ export default function Home() {
               asperiores voluptatem quae similique architecto voluptas placeat
               ipsum ullam sint mollitia. Univers allemand
             </p>
-            <Button className="w-80 font-bold" variant="destructive">
-              Découvrir
-            </Button>
+            <Link href={'/EspaceDeVente'}>
+              <Button className="w-80 font-bold" variant="destructive">
+                Découvrir
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="">
@@ -323,8 +325,6 @@ export default function Home() {
               </Link>
             </CardFooter>
           </Card>
-
-          
         </div>
 
         <div className="w-1/2 flex items-center justify-center ">

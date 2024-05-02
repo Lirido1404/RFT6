@@ -23,12 +23,7 @@ function Nav() {
         </Link>
 
         <div className="flex gap-6 mr-10">
-          <Link
-            href={"/EspaceDeVente2"}
-            className="text-white hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg"
-          >
-            edv2
-          </Link>
+          
           <Link
             href={"/Admin"}
             className="text-white hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg"
@@ -72,12 +67,7 @@ function Nav() {
               </ul>
             </div>
           </div>
-          <Link
-            href={"/Blog"}
-            className="text-white hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg"
-          >
-            Blog
-          </Link>
+          
           <Link
             href={"/"}
             className="text-white hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg"

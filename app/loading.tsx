@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import FadeLoader from "react-spinners/FadeLoader";
 
 function loading() {
   return (
