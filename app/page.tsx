@@ -1,112 +1,473 @@
 import Image from "next/image";
+import "./page.css";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+import { Badge } from "@/components/ui/badge";
+
+import { Separator } from "@/components/ui/separator";
+
+import Link from "next/link";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <main className="">
+      <div className="relative w-full h-[800px] ">
+        <div className="w-full  flex justify-evenly p-2 mt-6">
+          <Link href={"#bmw"}>
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              src="/Images/bmwlogo.svg"
+              width={60}
+              height={60}
+              alt="bmw"
+              className=" bmwlogo cursor-pointer"
             />
-          </a>
+          </Link>
+          <Link href={"#mercedes"}>
+            <Image
+              src="/Images/mercedeslogo.svg"
+              width={60}
+              height={60}
+              alt="mercedes"
+              className="hover:rotate-[120deg] ease-in-out duration-200 cursor-pointer"
+            />
+          </Link>
+          <Link href={"#audi"}>
+            <Image
+              src="/Images/audilogo.svg"
+              width={60}
+              height={60}
+              alt="audi"
+              className="hover:rotate-[180deg] ease-in-out duration-200 cursor-pointer"
+            />
+          </Link>
+        </div>
+        <div className="p-32">
+          <div className="flex flex-col gap-2">
+            <p className=" opacity-65">Mercedes 190 evo 2</p>
+            <h1 className="text-7xl font-bold opac">
+              Découvrez la beauté <br /> allemande
+            </h1>
+            <p className="w-[45ch] text-lg mt-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
+              asperiores voluptatem quae similique architecto voluptas placeat
+              ipsum ullam sint mollitia. Univers allemand
+            </p>
+            <Button className="w-80 font-bold" variant="destructive">
+              Découvrir
+            </Button>
+          </div>
+        </div>
+        <div className="">
+          <Image
+            src="/Images/mcevo2.png"
+            width={1200}
+            height={600}
+            alt="evo2"
+            className="drop-shadow-xl absolute bottom-16 right-0 animvoit1"
+          />
         </div>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="w-[70%] mx-auto mt-20" id="bmw">
+        <Separator />
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <div className="w-full flex mt-20 ">
+        <div className="w-1/2 flex items-center justify-center ">
+          <Image
+            src="/Images/bmwlogocolor.svg"
+            width={700}
+            height={700}
+            className="absolute opacity-85"
+            alt="bmw logo"
+          />
+          <Image
+            src="/Images/bmw/bmwm8.png"
+            width={800}
+            height={800}
+            className="aret absolute animvoit2 mr-40"
+            alt="bmw"
+          />
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        <div className="w-1/2  grid grid-cols-2 p-20 gap-8">
+          <Card className="hover:shadow-lg ease-in-out duration-150">
+            <CardHeader className="">
+              <div className="rounded-full">
+                <Image
+                  src="https://images.pexels.com/photos/12249428/pexels-photo-12249428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  width={200}
+                  height={200}
+                  alt="bmw"
+                  className=" w-16 h-16 object-cover rounded-full"
+                />
+              </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+              <div>
+                <CardTitle>BMW M2 G87</CardTitle>
+                <CardDescription>2023</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+                distinctio?
+              </p>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Link href={"/EspaceDeVente/6632011ee9d6f145b719ee17"}>
+                <Button variant="destructive">View Car</Button>
+              </Link>
+              <Badge variant="outline">New</Badge>
+            </CardFooter>
+          </Card>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+          <Card className="hover:shadow-lg ease-in-out duration-150">
+            <CardHeader className="">
+              <div className="rounded-full">
+                <Image
+                  src="https://images.pexels.com/photos/18554951/pexels-photo-18554951/free-photo-of-route-soleil-couchant-coucher-de-soleil-coucher-du-soleil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  width={200}
+                  height={200}
+                  alt="bmw"
+                  className=" w-16 h-16 object-cover rounded-full"
+                />
+              </div>
+
+              <div>
+                <CardTitle>BMW M3 G80</CardTitle>
+                <CardDescription>2022</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+                distinctio?
+              </p>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Link href={"/EspaceDeVente/6632024d85c2358e94f0d410"}>
+                <Button variant="destructive">View Car</Button>{" "}
+              </Link>
+            </CardFooter>
+          </Card>
+
+          <Card className="hover:shadow-lg ease-in-out duration-150">
+            <CardHeader className="">
+              <div className="rounded-full">
+                <Image
+                  src="https://wallpapercave.com/wp/wp3192871.jpg"
+                  width={200}
+                  height={200}
+                  alt="bmw"
+                  className=" w-16 h-16 object-cover rounded-full"
+                />
+              </div>
+
+              <div>
+                <CardTitle>BMW 135i</CardTitle>
+                <CardDescription>2007</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+                distinctio?
+              </p>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Link href={"/EspaceDeVente/66322e9c7229e5ff78d71026"}>
+                <Button variant="destructive">View Car</Button>
+              </Link>
+            </CardFooter>
+          </Card>
+
+          <Card className="hover:shadow-lg ease-in-out duration-150">
+            <CardHeader className="">
+              <div className="rounded-full">
+                <Image
+                  src="https://carfans.fr/wp-content/uploads/2022/10/BMW-M5-CS-arriere.jpg.webp"
+                  width={200}
+                  height={200}
+                  alt="bmw"
+                  className=" w-16 h-16 object-cover rounded-full"
+                />
+              </div>
+
+              <div>
+                <CardTitle>BMW M5 CS F90</CardTitle>
+                <CardDescription>2021</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+                distinctio?
+              </p>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Link href={"/EspaceDeVente/66322f077229e5ff78d71028"}>
+                <Button variant="destructive">View Car</Button>
+              </Link>
+            </CardFooter>
+          </Card>
+        </div>
+      </div>
+
+      <div className="w-[70%] mx-auto mt-20" id="mercedes">
+        <Separator />
+      </div>
+
+      <div className="w-full flex mt-20">
+        <div className="w-1/2  grid grid-cols-2 p-20 gap-8">
+          <Card className="hover:shadow-lg ease-in-out duration-150">
+            <CardHeader className="">
+              <div className="rounded-full">
+                <Image
+                  src="https://img.goodfon.com/original/2048x1351/0/eb/mercedes-c63-amg-black-face-front-autumn-sight-w205.jpg"
+                  width={200}
+                  height={200}
+                  alt="bmw"
+                  className=" w-16 h-16 object-cover rounded-full"
+                />
+              </div>
+
+              <div>
+                <CardTitle>Mercedes W205</CardTitle>
+                <CardDescription>2015</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+                distinctio?
+              </p>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Link href={"/EspaceDeVente/66322f3e7229e5ff78d71029"}>
+                <Button variant="destructive">View Car</Button>
+              </Link>
+            </CardFooter>
+          </Card>
+
+          <Card className="hover:shadow-lg ease-in-out duration-150">
+            <CardHeader className="">
+              <div className="rounded-full">
+                <Image
+                  src="https://images.pexels.com/photos/19597723/pexels-photo-19597723/free-photo-of-route-campagne-voiture-vehicule.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  width={200}
+                  height={200}
+                  alt="bmw"
+                  className=" w-16 h-16 object-cover rounded-full"
+                />
+              </div>
+
+              <div>
+                <CardTitle>Mercedes Class G</CardTitle>
+                <CardDescription>2012</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+                distinctio?
+              </p>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Link href={"/EspaceDeVente/66322fb27229e5ff78d7102a"}>
+                <Button variant="destructive">View Car</Button>
+              </Link>
+            </CardFooter>
+          </Card>
+
+          <Card className="hover:shadow-lg ease-in-out duration-150">
+            <CardHeader className="">
+              <div className="rounded-full">
+                <Image
+                  src="https://images.pexels.com/photos/19758543/pexels-photo-19758543/free-photo-of-voiture-vehicule-mercedes-argent.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  width={200}
+                  height={200}
+                  alt="bmw"
+                  className=" w-16 h-16 object-cover rounded-full"
+                />
+              </div>
+
+              <div>
+                <CardTitle>Mercedes CLS63</CardTitle>
+                <CardDescription>2010</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+                distinctio?
+              </p>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Link href={"/EspaceDeVente/663230187229e5ff78d7102b"}>
+                <Button variant="destructive">View Car</Button>
+              </Link>
+            </CardFooter>
+          </Card>
+
+          
+        </div>
+
+        <div className="w-1/2 flex items-center justify-center ">
+          <Image
+            src="/Images/mercedeslogo.svg"
+            width={550}
+            height={550}
+            className="absolute opacity-100"
+            alt="bmw logo"
+          />
+          <Image
+            src="/Images/mercedes/amggt.png"
+            width={950}
+            height={950}
+            className="aret absolute animvoit2"
+            alt="bmw"
+          />
+        </div>
+      </div>
+
+      <div className="w-[70%] mx-auto mt-20" id="audi">
+        <Separator />
+      </div>
+
+      <div className="w-[95%] mx-auto flex justify-between mt-20">
+        <div className="p-8">
+          <Card className="hover:shadow-lg ease-in-out duration-150">
+            <CardHeader className="">
+              <div className="rounded-full">
+                <Image
+                  src="https://images.pexels.com/photos/38637/car-audi-auto-automotive-38637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  width={200}
+                  height={200}
+                  alt="bmw"
+                  className=" w-16 h-16 object-cover rounded-full"
+                />
+              </div>
+
+              <div>
+                <CardTitle>Audi A3</CardTitle>
+                <CardDescription>2020</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+                distinctio?
+              </p>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Link href={"/EspaceDeVente/663230657229e5ff78d7102c"}>
+                <Button variant="destructive">View Car</Button>
+              </Link>
+            </CardFooter>
+          </Card>
+        </div>
+
+        <div className="flex justify-center items-start ">
+          <Image
+            src="/Images/audilogo.svg"
+            alt="r8"
+            width={500}
+            height={500}
+            className=" scale-y-100 z-1 hover:scale-y-50 pt-10 duration-200 ease-in-out "
+          />
+          <Image
+            src="/Images/audi/audir8.png"
+            alt="r8"
+            width={300}
+            height={300}
+            className="absolute z-2"
+          />
+        </div>
+
+        <div className="p-8">
+          <Card className="hover:shadow-lg ease-in-out duration-150">
+            <CardHeader className="">
+              <div className="rounded-full">
+                <Image
+                  src="https://images.pexels.com/photos/17593023/pexels-photo-17593023/free-photo-of-rue-arbres-voiture-vehicule.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  width={200}
+                  height={200}
+                  alt="bmw"
+                  className=" w-16 h-16 object-cover rounded-full"
+                />
+              </div>
+
+              <div>
+                <CardTitle>Audi RS7</CardTitle>
+                <CardDescription>2022</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
+                distinctio?
+              </p>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Link href={"/EspaceDeVente/663231027229e5ff78d7102d"}>
+                <Button variant="destructive">View Car</Button>{" "}
+              </Link>
+              <Badge variant="outline">New</Badge>
+            </CardFooter>
+          </Card>
+        </div>
+      </div>
+
+      <div className="w-[70%] mx-auto mt-8">
+        <Separator />
+      </div>
+
+      <div className="w-[80%] mx-auto mt-12">
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="font-bold">
+              Des magasins de concessions sont-ils prévus ?
+            </AccordionTrigger>
+            <AccordionContent>
+              Oui. Nous disposerons les modèles les plus récents dans des
+              espaces dédiés à la vente physique.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger className="font-bold">
+              Les gammes vont-elles s&apos;hétérogénéiser ?
+            </AccordionTrigger>
+
+            <AccordionContent>
+              Oui. Il est possible que nous proposions des voitures de plus en
+              plus cotés, celà peut amener à des prix plus élevés.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger className="font-bold">
+              Des partenariats avec d&apos;autres marques sont-ils prévus ?
+            </AccordionTrigger>
+            <AccordionContent>
+              Nous collabererons bien avec d&apos;autres marques que celles
+              présentées, mais uniquement des marques allemandes.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </main>
   );
