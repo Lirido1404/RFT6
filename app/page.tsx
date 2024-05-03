@@ -22,7 +22,12 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
 import Link from "next/link";
-export default function Home() {
+import { getServerSession } from "next-auth";
+import { options } from "./api/auth/[...nextauth]/options";
+
+export default async function Home() {
+    const session = await getServerSession(options);
+
   return (
     <main className="">
       <div className="relative w-full h-[800px] ">
@@ -59,7 +64,7 @@ export default function Home() {
           <div className="flex flex-col gap-2">
             <p className=" opacity-65">Mercedes 190 evo 2</p>
             <h1 className="text-7xl font-bold opac">
-              Découvrez la beauté <br /> allemande
+              Découvrez la beauté <br /> allemande {session ? <p className="text-green-500 text-3xl">Session</p> : <p className="text-red-500 text-3xl">NoSession</p>}
             </h1>
             <p className="w-[45ch] text-lg mt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo

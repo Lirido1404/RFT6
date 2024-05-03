@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Nav.css";
+import Exit from "./Exit";
 function Nav() {
   const [dropDown, setDropDown] = useState(false);
 
@@ -69,11 +70,12 @@ function Nav() {
           </div>
           
           <Link
-            href={"/"}
+            href={"/Account"}
             className="text-white hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg"
           >
             Login
           </Link>
+          <Exit/>
         </div>
       </nav>
     </header>
