@@ -120,16 +120,16 @@ function CardCalendar2({ newdate }: any) {
         </motion.div>
       )}
 
-      {truedate.map((date: any, index: number) => (
+      {truedate.map((event: any, index: number) => (
         <motion.div
           className="overflow-hidden mt-2 w-full"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
-          key={date._id}
+          key={event._id}
         >
           <Card className="rounded">
             <CardHeader className="p-2 font-bold text-[#FF7E14] ">
-              {date.title}
+              {event.title}
             </CardHeader>
 
             <CardContent className="p-1 flex flex-col gap-1">
@@ -138,9 +138,9 @@ function CardCalendar2({ newdate }: any) {
                   className="h-6 w-[2px] rounded ml-2 bg-[#1A73E8]"
                   orientation="vertical"
                 />
-                <p className="ml-1 lg:w-[40ch]">{date.content}</p>
+                <p className="ml-1 lg:w-[40ch]">{event.objectif}</p>
               </span>
-              <Link href={`/Rassemblements/${date._id}`} className="p-2">
+              <Link href={`/Rassemblements/${event._id}`} className="p-2">
                 <Button variant={'secondary'} className="border border-[#FF7E14]">
                 Voir informations
                 </Button>

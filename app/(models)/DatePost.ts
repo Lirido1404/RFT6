@@ -7,6 +7,13 @@ const datePostSchema = new Schema(
   {
     date: String,
     title: String,
+    lieu:String,
+    horaire:String,
+    duree:String,
+    tag1:String,
+    tag2:String,
+    tag3:String,
+    objectif:String,
     content: String,
   },
   {
