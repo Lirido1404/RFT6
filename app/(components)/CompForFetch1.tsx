@@ -30,7 +30,7 @@ function CompForFetch1({ res }: any) {
           className=""
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.05 }}
+          transition={{ delay: index * 0.07 }}
         >
           <Card className="hover:shadow-lg ease-in-out duration-150">
             <CardHeader className="">

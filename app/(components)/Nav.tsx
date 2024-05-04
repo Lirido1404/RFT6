@@ -5,7 +5,11 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Nav.css";
 import Exit from "./Exit";
+import { useSession } from "next-auth/react";
+
 function Nav() {
+  const { data: session } = useSession();
+
   const [dropDown, setDropDown] = useState(false);
 
   const handleMouseEnter = () => {
@@ -24,7 +28,6 @@ function Nav() {
         </Link>
 
         <div className="flex gap-6 mr-10">
-          
           <Link
             href={"/Admin"}
             className="text-white hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg"
@@ -68,14 +71,22 @@ function Nav() {
               </ul>
             </div>
           </div>
+
+          {!session ? (
+            <>
+              <Link
+                href={"/Account"}
+                className="text-white hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg"
+              >
+                Login
+              </Link>
+            </>
+          ):(
+            <>
+            <Exit />
+            </>
+          )}
           
-          <Link
-            href={"/Account"}
-            className="text-white hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg"
-          >
-            Login
-          </Link>
-          <Exit/>
         </div>
       </nav>
     </header>

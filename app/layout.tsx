@@ -4,6 +4,8 @@ import "./globals.css";
 import Nav from "./(components)/Nav";
 import FlecheRemonte from "./(components)/FlecheRemonte";
 import Footer from "./(components)/Footer";
+import AuthProvider from "./(components)/AuthProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,12 +22,15 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={inter.className}>
-        <FlecheRemonte />
-        <div>
-          <Nav />
-        </div>
-        {children}
-        <Footer />
+        <AuthProvider>
+          <FlecheRemonte />
+          <div>
+            <Nav />
+          </div>
+          {children}
+          <Footer />
+          <Toaster />
+        </AuthProvider>
       </body>
     </html>
   );
