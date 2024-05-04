@@ -66,7 +66,7 @@ export default async function Home() {
             <h1 className="text-7xl font-bold opac">
               Découvrez la beauté <br /> allemande
             </h1>
-            <p className="w-[45ch] text-lg mt-4">
+            <p className="w-[45ch] text-lg mt-4 text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
               asperiores voluptatem quae similique architecto voluptas placeat
               ipsum ullam sint mollitia. Univers allemand

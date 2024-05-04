@@ -72,6 +72,13 @@ function Nav() {
             </div>
           </div>
 
+          <Link
+            href={"/Rassemblements"}
+            className="text-white hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg"
+          >
+            Rassemblements
+          </Link>
+
           {!session ? (
             <>
               <Link
@@ -81,12 +88,11 @@ function Nav() {
                 Login
               </Link>
             </>
-          ):(
+          ) : (
             <>
-            <Exit />
+              <Exit />
             </>
           )}
-          
         </div>
       </nav>
     </header>
