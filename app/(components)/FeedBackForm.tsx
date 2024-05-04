@@ -71,7 +71,7 @@ function FeedBackForm({ idOfProduct }:{idOfProduct:string}) {
               id="nom"
               onChange={handleChange}
               value={formData.nom}
-              placeholder="Maxime"
+              placeholder="Hugo"
             />
           </div>
 
@@ -108,7 +108,7 @@ function FeedBackForm({ idOfProduct }:{idOfProduct:string}) {
             onChange={handleChange}
             name="note"
             id="note"
-            className="border-[1px] rounded-md"
+            className="border-[1px] rounded-md p-2"
           >
             <option value="0">0 étoile</option>
             <option value="1">1 étoile</option>

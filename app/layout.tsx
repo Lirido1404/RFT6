@@ -6,6 +6,7 @@ import FlecheRemonte from "./(components)/FlecheRemonte";
 import Footer from "./(components)/Footer";
 import AuthProvider from "./(components)/AuthProvider";
 import { Toaster } from "@/components/ui/toaster";
+import AjoutNotifAuth from "./(components)/AjoutNotifAuth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="fr">
       <body className={inter.className}>
         <AuthProvider>
+          <AjoutNotifAuth/>
           <FlecheRemonte />
           <div>
             <Nav />

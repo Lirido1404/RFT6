@@ -64,7 +64,7 @@ export default async function Home() {
           <div className="flex flex-col gap-2">
             <p className=" opacity-65">Mercedes 190 evo 2</p>
             <h1 className="text-7xl font-bold opac">
-              Découvrez la beauté <br /> allemande {session ? <p className="text-green-500 text-3xl">Session</p> : <p className="text-red-500 text-3xl">NoSession</p>}
+              Découvrez la beauté <br /> allemande
             </h1>
             <p className="w-[45ch] text-lg mt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
