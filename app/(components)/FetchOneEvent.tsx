@@ -9,51 +9,130 @@ import {
 } from "@/components/ui/card";
 import { fetchOneEvent } from "@/app/api/Date/fetchoneevent";
 import { Separator } from "@radix-ui/react-separator";
+import { Badge } from "@/components/ui/badge"
+
 
 async function FetchOneEvent({ id }: any) {
   const res = await fetchOneEvent(id);
+
+  const returnTag1 = () => {
+    const tag1 = res.tag1;
+
+    switch (tag1) {
+      case "Parking":
+        return (
+          <div className="flex gap-1 items-center">
+            {" "}
+            <img src="/Images/parkingg.svg" alt="" className="h-6 w-6" />{" "}
+            <p className='text-black font-bold'> {tag1} </p>{" "}
+          </div>
+        );
+        break;
+      case "Exploration":
+        return (
+          <div className="flex gap-1 items-center">
+            {" "}
+            <img
+              src="/Images/explorationn.svg"
+              alt=""
+              className="h-6 w-6"
+            />{" "}
+            <p className='text-black font-bold'> {tag1} </p>{" "}
+          </div>
+        );
+        break;
+      case "Course":
+        return (
+          <div className="flex gap-1 items-center">
+            {" "}
+            <img src="/Images/racee.svg" alt="" className="h-6 w-6" />{" "}
+            <p className='text-black font-bold'> {tag1} </p>{" "}
+          </div>
+        );
+        break;
+      case "Fête":
+        return (
+          <div className="flex gap-1 items-center">
+            {" "}
+            <img src="/Images/partyy.svg" alt="" className="h-6 w-6" />{" "}
+            <p className='text-black font-bold'> {tag1} </p>{" "}
+          </div>
+        );
+        break;
+    }
+  };
+
+  const returnTag2 = () => {
+    const tag2 = res.tag2;
+
+    return (
+      <div className="flex gap-1 items-center">
+        {" "}
+        <img src="/Images/peoplee.svg" alt="" className="h-6 w-6" /> <p className="text-black font-bold"> {tag2} </p>
+      </div>
+    );
+  };
+
+  const returnTag3 = () => {
+    const tag3 = res.tag3;
+
+    return (
+      <div className="flex gap-1 items-center">
+        {" "}
+        <img src="/Images/carssport.svg" alt="" className="h-6 w-6" />  <p className="text-black font-bold"> {tag3} </p>
+      </div>
+    );
+  };
+
   return (
     <div>
       <div className="p-16">
-        <h3 className=" text-black text-4xl font-bold">{res.title}</h3>
+        <h3 className=" font-bold bg-[#FF7E14] text-4xl text-white rounded-2xl inline-block p-4 shadow">{res.title}</h3>
       </div>
       <div className="flex gap-20 p-20">
-        <div className="w-[30%] bg-red-500">
-          <Card>
+        <div className="w-[40%] ">
+          <Card className=" sticky top-8 ">
             <CardHeader>
               <CardTitle> {res.title} </CardTitle>
               <CardDescription>
                 <div className="flex gap-4 ">
                   <span className="flex items-center gap-2">
-                    {" "}
                     <img
                       src="/Images/calendaricon.svg"
                       alt=""
                       className="h-6 w-6"
-                    />{" "}
-                    <p>{res.date}</p>{" "}
+                    />
+                    <p>
+                      {res.date} | {res.horaire}h{" "}
+                    </p>
                   </span>
                   <span className="flex items-center gap-2">
-                    {" "}
-                    <img
-                      src="/Images/mapicon.svg"
-                      alt=""
-                      className="h-6 w-6"
-                    />{" "}
+                    <img src="/Images/mapicon.svg" alt="" className="h-6 w-6" />
                     <p>{res.lieu}</p>
                   </span>
                 </div>
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p>Card Content</p>
+              <p className="italic"> Objectif : {res.objectif} </p>
+              <p className="text-justify mt-4"> {res.content} </p>
             </CardContent>
-            <CardFooter>
-              <p>Card Footer</p>
+            <CardFooter className="flex gap-1 justify-end">
+              <Badge className="bg-white border border-[#FF7E14] hover:bg-[#FF7E14]">
+                {returnTag1()}
+              </Badge>
+              <Badge className="bg-white border border-[#FF7E14] hover:bg-[#FF7E14]">
+                {returnTag2()}
+              </Badge>
+              <Badge className="bg-white border border-[#FF7E14] hover:bg-[#FF7E14]">
+                {returnTag3()}
+              </Badge>
             </CardFooter>
           </Card>
         </div>
-        <div className="bg-blue-500 flex-grow">h</div>
+        <div className=" w-[60%] border-l border-gray-200">
+          <p className="text-3xl font-bold bg-[#FF7E14] text-white rounded-r-2xl inline-block p-2 shadow">Commentaires</p>
+        </div>
       </div>
     </div>
   );
@@ -62,10 +141,6 @@ async function FetchOneEvent({ id }: any) {
 export default FetchOneEvent;
 
 /*
-<p> {res.objectif} </p>
-<p> {res.date} </p>
-<p> {res.lieu} </p>
-<p> {res.horaire} </p>
 <p> {res.duree} </p>
 <p className='text-black'> {res.tag1} </p>
 <p> {res.tag2} </p>
