@@ -8,6 +8,7 @@ const commentsSchema = new Schema(
     contentOfComment:String,
     idOfRasso:String,
     nomOfProprio:String,
+    profilePic:String,
   },
   {
     timestamps: true,

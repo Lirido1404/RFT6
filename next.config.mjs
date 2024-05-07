@@ -18,6 +18,10 @@ const nextConfig = {
           protocol: "https",
           hostname: "img.goodfon.com",
         },
+        {
+          protocol: "https",
+          hostname: "lh3.googleusercontent.com",
+        },
       ],
     }, 
   };

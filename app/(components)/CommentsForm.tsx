@@ -2,14 +2,18 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 function CommentsForm({ id }: { id: string }) {
   const { data: session } = useSession();
   const nameOfProprio = session?.user?.name;
+  const userImage = session?.user?.image;
   const [formData, setFormData] = useState({
     contentOfComment: "",
     idOfRasso: "",
     nomOfProprio: nameOfProprio,
+    profilePic:userImage,
+
   });
   const router = useRouter();
   const handleChange = (e: any) => {
@@ -36,15 +40,15 @@ function CommentsForm({ id }: { id: string }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-1 w-full bg-blue-500">
-      <p>NameOfProprio : {nameOfProprio} </p>
+    <form onSubmit={handleSubmit} className="flex justify-center gap-1 w-full bg-blue-500">
+      
       <input
         type="text"
         onChange={handleChange}
         name="contentOfComment"
-        className="bg-red-500"
+        className="border-black border rounded-full p-1 w-96 bg-gray-200"
       />
-      <input type="submit" value={"Envoyer"} />
+      <input type="submit" value={"Envoyer"} className="bg-green-500" />
     </form>
   );
 }

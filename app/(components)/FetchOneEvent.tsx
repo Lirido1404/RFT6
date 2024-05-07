@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import {
   Card,
   CardContent,
@@ -95,8 +95,8 @@ async function FetchOneEvent({ id }: any) {
           <Card className=" sticky top-8 ">
             <CardHeader>
               <CardTitle> {res.title} </CardTitle>
-              <CardDescription>
-                <div className="flex gap-4 ">
+              <CardDescription className="flex gap-4">
+                
                   <span className="flex items-center gap-2">
                     <img
                       src="/Images/calendaricon.svg"
@@ -111,7 +111,7 @@ async function FetchOneEvent({ id }: any) {
                     <img src="/Images/mapicon.svg" alt="" className="h-6 w-6" />
                     <p>{res.lieu}</p>
                   </span>
-                </div>
+                
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -133,7 +133,10 @@ async function FetchOneEvent({ id }: any) {
         </div>
         <div className=" w-[60%] border-l border-gray-200">
           <p className="text-3xl font-bold bg-[#FF7E14] text-white rounded-r-2xl inline-block p-2 shadow">Commentaires</p>
+          
+          <Suspense fallback={<>Loading...</>}>
           <FetchCommentRasso id={res._id} />
+          </Suspense>
 
         </div>
       </div>
