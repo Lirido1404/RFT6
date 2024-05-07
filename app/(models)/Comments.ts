@@ -9,6 +9,7 @@ const commentsSchema = new Schema(
     idOfRasso:String,
     nomOfProprio:String,
     profilePic:String,
+    idOfUser:String,
   },
   {
     timestamps: true,
