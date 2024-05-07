@@ -10,6 +10,7 @@ import {
 import { fetchOneEvent } from "@/app/api/Date/fetchoneevent";
 import { Separator } from "@radix-ui/react-separator";
 import { Badge } from "@/components/ui/badge"
+import FetchCommentRasso from "./FetchCommentRasso";
 
 
 async function FetchOneEvent({ id }: any) {
@@ -132,6 +133,8 @@ async function FetchOneEvent({ id }: any) {
         </div>
         <div className=" w-[60%] border-l border-gray-200">
           <p className="text-3xl font-bold bg-[#FF7E14] text-white rounded-r-2xl inline-block p-2 shadow">Commentaires</p>
+          <FetchCommentRasso />
+
         </div>
       </div>
     </div>
