@@ -10,6 +10,8 @@ interface UserDocument extends Document {
   role?: string;
 }
 
+
+
 export const options = {
   providers: [
     GoogleProvider({
