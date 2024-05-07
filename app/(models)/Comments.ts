@@ -6,6 +6,8 @@ mongoose.Promise = global.Promise;
 const commentsSchema = new Schema(
   {
     contentOfComment:String,
+    idOfRasso:String,
+    nomOfProprio:String,
   },
   {
     timestamps: true,
