@@ -10,14 +10,13 @@ function DeleteComment ({ idOfComment }:{idOfComment:string}){
       method: "DELETE",
     });
     if (res.ok) {
-      router.push("/");
       router.refresh();
     }
   };
 
   return (
-    <button className='p-2 bg-orange-500 text-white rounded' onClick={handleDelete}>
-      Delete
+    <button className='bg-white p-1 border border-orange-500 text-white rounded hover:bg-orange-500 ease-in-out duration-150' onClick={handleDelete}>
+      <img src="/Images/trashcann.svg" className="w-6 w-6" alt="" />
     </button>
   );
 }
