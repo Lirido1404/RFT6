@@ -140,7 +140,7 @@ async function FetchOneEvent({ id }: any) {
           </Card>
         </div>
         <div className=" w-[60%]">
-          <p className="text-3xl font-bold bg-[#FF7E14] text-white rounded-2xl inline-block p-2 shadow">Commentaires</p>
+          <p className="text-3xl font-bold bg-[#FF7E14] text-white rounded-2xl inline-block p-2 shadow">Commentaires - {res.title} </p>
           
           <Suspense fallback={<div className="flex justify-center"> <Image src={'/Images/logocar2.png'} width={100} height={100} className="opacload" alt="logo"/> </div>}>
           <FetchCommentRasso id={res._id} />

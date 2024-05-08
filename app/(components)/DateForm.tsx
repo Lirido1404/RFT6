@@ -73,8 +73,9 @@ function DateForm() {
       // Afficher un message d'erreur plus descriptif que "not ok"
       alert(response.message);
     } else {
-      router.push("/Rassemblements");
       router.refresh();
+      
+      
     }
   };
 

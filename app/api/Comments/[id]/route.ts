@@ -12,3 +12,18 @@ export async function DELETE(req:Request, { params }:{params:any}) {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
   }
 }
+
+
+export async function PUT(req:Request, { params }:{params:any}) {
+  try {
+    const id = params.id;
+    const body = await req.json();
+    const updateCommentData = await Comments.findByIdAndUpdate(id, {
+      contentOfComment: body.contentOfComment,
+      
+    });
+    return NextResponse.json({ message: "Contact updated" }, { status: 200 });
+  } catch (err) {
+    return NextResponse.json({ message: "Error", err }, { status: 500 });
+  }
+}
