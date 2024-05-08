@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge"
 import FetchCommentRasso from "./FetchCommentRasso";
 import Image from "next/image";
 import {countAllComments} from "@/app/api/Comments/countComment"
+import ParticipRasso from "./ParticipRasso";
 
 async function FetchOneEvent({ id }: any) {
 
@@ -129,7 +130,7 @@ async function FetchOneEvent({ id }: any) {
               <p className="text-justify mt-4"> {res.content} </p>
             </CardContent>
             <CardFooter className=" justify-between">
-              <p className="p-2 bg-[#D0FECF] text-black rounded-lg cursor-pointer">Je participe</p>
+              <ParticipRasso id={id} />
               <div className="flex gap-1">
               <Badge className="bg-white border border-[#FF7E14] hover:bg-[#FF7E14]">
                 {returnTag1()}

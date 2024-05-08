@@ -83,7 +83,7 @@ function Nav() {
             <>
               <Link
                 href={"/Account"}
-                className=" hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg border-2 border-[#FF7E14] text-black"
+                className=" py-1 px-4 ease-in-out duration-200 rounded text-lg bg-[#D0FECF] text-black"
               >
                 Login
               </Link>
