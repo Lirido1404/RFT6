@@ -7,6 +7,11 @@ import Image from "next/image";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Timestamp } from "mongodb";
+import DeleteComment from "./DeleteComment";
+
+
+
+
 
 async function FetchCommentRasso({ id }: { id: string }) {
   const session = await getServerSession(options);
@@ -70,12 +75,12 @@ async function FetchCommentRasso({ id }: { id: string }) {
                         ? comment.nomOfProprio
                         : "Utilisateur"}{" "}
                     </p>
-
+                    
                     {sessionid === comment.idOfUser && (
                       <>
                         <div className="flex gap-2">
                           <p className="text-orange-500">Edit</p>
-                          <p className="text-orange-500">Delete</p>
+                          <DeleteComment idOfComment={comment._id} />
                         </div>
                       </>
                     )}
