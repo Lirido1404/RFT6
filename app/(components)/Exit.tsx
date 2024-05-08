@@ -16,7 +16,7 @@ function Exit() {
       <Button
         aria-label="se deconnecter"
         onClick={() => signOut({ callbackUrl: "/" })}
-        className=""
+        className="text-black"
         variant={"destructive"}
       >
         <p className="">Deconnexion</p>

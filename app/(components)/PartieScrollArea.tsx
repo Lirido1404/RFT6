@@ -59,7 +59,7 @@ function PartieScrollArea({randomCars}:any) {
               </CardContent>
               <CardFooter className="flex justify-between">
                 <Link href={`/EspaceDeVente/${car._id}`}>
-                  <Button variant="destructive">View Car</Button>
+                  <Button variant="destructive" className='text-black'>View Car</Button>
                 </Link>
                 <BadgeCardSpe
                   emission={car.emission}

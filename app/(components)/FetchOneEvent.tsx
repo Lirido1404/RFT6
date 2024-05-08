@@ -12,9 +12,14 @@ import { Separator } from "@radix-ui/react-separator";
 import { Badge } from "@/components/ui/badge"
 import FetchCommentRasso from "./FetchCommentRasso";
 import Image from "next/image";
-
+import {countAllComments} from "@/app/api/Comments/countComment"
 
 async function FetchOneEvent({ id }: any) {
+
+
+
+
+  const res0 = await countAllComments(id);
   const res = await fetchOneEvent(id);
 
   const returnTag1 = () => {
@@ -88,11 +93,11 @@ async function FetchOneEvent({ id }: any) {
 
   return (
     <div>
-      <div className="p-16">
-        <h3 className=" font-bold bg-[#FF7E14] text-4xl text-white rounded-2xl inline-block p-4 shadow">{res.title}</h3>
-        <div className="flex gap-4">
-        <p>Participants X : </p>
-        <p>Commentaires X: </p>
+      <div className="p-16 " >
+        <h3 className=" font-bold text-4xl text-black inline-block p-4 border-l-2 border-[#FF7E14] ">{res.title}</h3>
+        <div className="flex gap-4 border-l-2 border-[#FF7E14]">
+        <p className="ml-4 flex gap-1 items-center"><img src="/Images/peoplee.svg" alt="Personnes" className="h-8 w-8" /> <span className="text-[#FF7E14] font-bold"> X </span> </p>
+        <p className="ml-4 flex gap-1 items-center"> <img src="/Images/commentss.svg" alt="Commentaires" className="h-8 w-8" /> <span className="text-[#FF7E14] font-bold">{res0}</span></p>
         </div>
       </div>
       <div className="flex gap-20 p-20">
@@ -124,7 +129,7 @@ async function FetchOneEvent({ id }: any) {
               <p className="text-justify mt-4"> {res.content} </p>
             </CardContent>
             <CardFooter className=" justify-between">
-              <p className="p-2 bg-orange-500 text-white font-bold rounded cursor-pointer">Je participe</p>
+              <p className="p-2 bg-[#D0FECF] text-black rounded-lg cursor-pointer">Je participe</p>
               <div className="flex gap-1">
               <Badge className="bg-white border border-[#FF7E14] hover:bg-[#FF7E14]">
                 {returnTag1()}
@@ -140,7 +145,7 @@ async function FetchOneEvent({ id }: any) {
           </Card>
         </div>
         <div className=" w-[60%]">
-          <p className="text-3xl font-bold bg-[#FF7E14] text-white rounded-2xl inline-block p-2 shadow">Commentaires - {res.title} </p>
+          <p className="text-3xl  text-black font-bold inline-block p-3 border-l-2 border-[#FF7E14]">Commentaires - {res.title} </p>
           
           <Suspense fallback={<div className="flex justify-center"> <Image src={'/Images/logocar2.png'} width={100} height={100} className="opacload" alt="logo"/> </div>}>
           <FetchCommentRasso id={res._id} />
@@ -154,10 +159,3 @@ async function FetchOneEvent({ id }: any) {
 
 export default FetchOneEvent;
 
-/*
-<p> {res.duree} </p>
-<p className='text-black'> {res.tag1} </p>
-<p> {res.tag2} </p>
-<p> {res.tag3} </p>
-<p> {res.content} </p>
-*/

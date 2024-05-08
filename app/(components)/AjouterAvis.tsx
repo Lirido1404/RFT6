@@ -24,7 +24,7 @@ function AjouterAvis() {
   return (
     <>
       <button onClick={handleSession}>
-        <h4 className="bg-orange-500 rounded-lg shadow py-2 px-4 text-white cursor-pointer">
+        <h4 className="bg-[#D0FECF] rounded-lg shadow py-2 px-4 text-black cursor-pointer">
           Ajouter un avis
         </h4>
       </button>

@@ -118,7 +118,7 @@ async function FetchDataComp2({ id }: any) {
         {returnLogo()}
       </div>
       <div className="mt-6">
-        <Button variant="destructive">Buy car</Button>
+        <Button variant="destructive" className="text-black">Buy car</Button>
       </div>
       <div className="grid grid-cols-2 mt-10 gap-6">
         <div className="p-0">
@@ -269,7 +269,7 @@ async function FetchDataComp2({ id }: any) {
         <Drawer>
           {session ? (
             <DrawerTrigger>
-              <h4 className="bg-orange-500 rounded-lg shadow py-2 px-4 text-white">
+              <h4 className="bg-[#D0FECF] rounded-lg shadow py-2 px-4 text-black">
                 Ajouter un avis
               </h4>
             </DrawerTrigger>

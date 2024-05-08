@@ -100,7 +100,7 @@ function CardCalendar2({ newdate }: any) {
       <p className="text-white  rounded text-center">
         Emploi du temps pour le <span className="font-bold">{date}</span>{" "}
       </p>
-      <Separator className="mt-2 w-[50%] mx-auto" />
+      <Separator className="mt-2 w-[50%] mx-auto " />
 
       {truedate.length === 0 && (
         <motion.div
@@ -127,21 +127,21 @@ function CardCalendar2({ newdate }: any) {
           animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
           key={event._id}
         >
-          <Card className="rounded">
-            <CardHeader className="p-2 font-bold text-[#FF7E14] ">
+          <Card className="rounded border-[#FF7E14]">
+            <CardHeader className="p-2 font-bold  ">
               {event.title}
             </CardHeader>
 
             <CardContent className="p-1 flex flex-col gap-1">
               <span className="text-sm flex items-center gap-2">
                 <Separator
-                  className="h-6 w-[2px] rounded ml-2 bg-[#1A73E8]"
+                  className="h-6 w-[2px] rounded ml-2 bg-[#FF7E14]"
                   orientation="vertical"
                 />
                 <p className="ml-1 lg:w-[40ch]">{event.objectif}</p>
               </span>
               <Link href={`/Rassemblements/${event._id}`} className="p-2">
-                <Button variant={'secondary'} className="border border-[#FF7E14]">
+                <Button variant={'secondary'} className="border-2 bg-white border-[#D0FECF]">
                 Voir informations
                 </Button>
               </Link>

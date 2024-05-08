@@ -13,7 +13,7 @@ function page() {
       <Drawer>
         <div className="flex flex-col gap-2 p-16">
           <h2 className="font-bold text-5xl">Dates de rassemblements</h2>
-          <DrawerTrigger className="w-60 rounded text-white font-bold bg-[#FF7E14] px-4 py-2 shadow">
+          <DrawerTrigger className="w-60 rounded text-black bg-[#D0FECF] px-4 py-2 shadow">
           Je crée mon rasso !
           </DrawerTrigger>
         </div>
