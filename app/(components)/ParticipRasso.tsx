@@ -1,33 +1,41 @@
-'use client'
-import React, { useState } from 'react'
+"use client";
+import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
+function ParticipRasso({
+  idsession,
+  idRasso,
+}: {
+  idsession: string;
+  idRasso: string;
+}) {
+  const router = useRouter();
+  const { data: session } = useSession();
+  const { toast } = useToast();
 
-function ParticipRasso({id}:{id:string}) {
+  const [data, setData] = useState({
+    idOfUser: idsession,
+    participation: true,
+    idOfRasso: idRasso,
+  });
 
-    const router = useRouter();
-    const { data: session } = useSession();
-    const { toast } = useToast();
-
-    const [data,setData] = useState({idOfUser:id,participation:true})
-
-    const handleClick =async(e:any)=>{
-        if(session){
-            e.preventDefault();
-            const res = await fetch("/api/Participations",{
-                method:"POST",
-                headers:{
-                    "Content-Type" : "application/json"
-                },
-                body:JSON.stringify(data)
-            });
-            router.refresh();
-        }else{
-            e.preventDefault();
+  const handleClick = async (e: any) => {
+    if (session) {
+      e.preventDefault();
+      const res = await fetch("/api/Participations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      router.refresh();
+    } else {
+      e.preventDefault();
       toast({
         description: (
           <span className="text-sm flex items-center">
@@ -41,15 +49,19 @@ function ParticipRasso({id}:{id:string}) {
           </ToastAction>
         ),
       });
-        }
-        
     }
+  };
 
   return (
     <>
-    <button className="p-2 bg-[#D0FECF] text-black rounded-lg cursor-pointer" onClick={handleClick}>Je participe</button>
+      <button
+        className="p-2 bg-[#D0FECF] text-black rounded-lg cursor-pointer"
+        onClick={handleClick}
+      >
+        Je participe
+      </button>
     </>
-  )
+  );
 }
 
-export default ParticipRasso
+export default ParticipRasso;

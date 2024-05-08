@@ -7,6 +7,7 @@ const participationsSchema = new Schema(
   {
     idOfUser: String,
     participation: Boolean,
+    idOfRasso:String,
   },
   {
     timestamps: true,
