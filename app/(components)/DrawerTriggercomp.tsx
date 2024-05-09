@@ -1,10 +1,13 @@
 "use client";
-import React from "react";
-import { useToast } from "@/components/ui/use-toast";
-import Link from "next/link";
-import { ToastAction } from "@/components/ui/toast";
 
-function AjouterAvis() {
+import React from 'react'
+import { DrawerTrigger } from "@/components/ui/drawer";
+import { useToast } from "@/components/ui/use-toast";
+import { ToastAction } from "@/components/ui/toast";
+import Link from 'next/link';
+
+
+function DrawerTriggercomp() {
   const { toast }:any = useToast();
 
   const handleSession = () => {
@@ -18,16 +21,11 @@ function AjouterAvis() {
       ),
     });
   };
-
   return (
-    <>
-      <button onClick={handleSession}>
-        <h4 className="bg-[#1A73E8] rounded-lg shadow py-2 px-4 text-white cursor-pointer">
-          Ajouter un avis
-        </h4>
-      </button>
-    </>
-  );
+    <button className="w-60 rounded text-white bg-[#1A73E8] px-4 py-2 shadow" onClick={handleSession}>
+          Je crée mon rasso !
+          </button>
+  )
 }
 
-export default AjouterAvis;
+export default DrawerTriggercomp

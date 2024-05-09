@@ -44,7 +44,7 @@ function DesinscriptionRassoEnDelete({
           </span>
         ),
         action: (
-          <ToastAction altText="Me connecter" className="border-[#FF7E14]">
+          <ToastAction altText="Me connecter" className="border-[#C91313]">
             <Link href={"/Account"}>Me connecter</Link>
           </ToastAction>
         ),
@@ -54,7 +54,7 @@ function DesinscriptionRassoEnDelete({
 
   return (
     <button
-      className="p-2 bg-[#D0FECF] text-black rounded-lg cursor-pointer"
+      className="p-2 bg-[#1A73E8] text-white rounded-lg cursor-pointer"
       onClick={handleClick}
     >
       Me désinscrire

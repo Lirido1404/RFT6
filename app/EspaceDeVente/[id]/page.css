@@ -7,7 +7,7 @@
   .pcar::after {
     content: "";
     position: absolute;
-    background-color: #ff7e14;
+    background-color: #C91313;
     height: 6px;
     width: 0%;
     left: 0;
@@ -67,7 +67,7 @@
   }
   
   th {
-    background-color: #ff7e14;
+    background-color: #C91313;
     opacity: 70%;
     color: white;
   }

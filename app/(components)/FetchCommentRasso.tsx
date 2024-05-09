@@ -18,6 +18,7 @@ async function FetchCommentRasso({ id }: { id: string }) {
   const sessionid = session?.user?.id;
   const nameOfProprio = session?.user?.name;
   const userImage = session?.user?.image;
+  const userMail = session?.user?.email;
   const res = await fetchAllComments(id);
 
   

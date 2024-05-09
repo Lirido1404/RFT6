@@ -61,7 +61,7 @@ function CommentsForm({
           </span>
         ),
         action: (
-          <ToastAction altText="Me connecter" className="border-[#FF7E14]">
+          <ToastAction altText="Me connecter" className="border-[#C91313]">
             <Link href={"/Account"}>Me connecter</Link>
           </ToastAction>
         ),
@@ -86,7 +86,7 @@ function CommentsForm({
         />
         <button
           type="submit"
-          className="flex justify-center items-center border bg-[#D0FECF] border-gray-200 rounded-full p-2 hover:border-[#D0FECF] hover:text-white ease-in-out duration-200 hover:-rotate-90"
+          className="flex justify-center items-center border bg-[#1A73E8] border-gray-200 rounded-full p-2 hover:border-[#1A73E8] hover:text-white ease-in-out duration-200 hover:-rotate-90"
         >
           <img src="/Images/sendd.svg" className="h-6 w-6" alt="send" />
         </button>

@@ -72,7 +72,7 @@ export default async function Home() {
               ipsum ullam sint mollitia. Univers allemand
             </p>
             <Link href={'/EspaceDeVente'}>
-              <Button className="w-80 font-bold text-black" variant="destructive">
+              <Button className="w-80 font-bold text-white" variant="destructive">
                 Découvrir
               </Button>
             </Link>
@@ -80,7 +80,7 @@ export default async function Home() {
         </div>
         <div className="">
           <Image
-            src="/Images/mcevo2.png"
+            src="/Images/mcevo22.png"
             width={1200}
             height={600}
             alt="evo2"
@@ -103,7 +103,7 @@ export default async function Home() {
             alt="bmw logo"
           />
           <Image
-            src="/Images/bmw/bmwm8.png"
+            src="/Images/bmwam2.png"
             width={800}
             height={800}
             className="aret absolute animvoit2 mr-40"
@@ -137,7 +137,7 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/6632011ee9d6f145b719ee17"}>
-                <Button variant="destructive" className="text-black">View Car</Button>
+                <Button variant="destructive" className="text-white">View Car</Button>
               </Link>
               <Badge variant="outline">New</Badge>
             </CardFooter>
@@ -168,7 +168,7 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/6632024d85c2358e94f0d410"}>
-                <Button variant="destructive" className="text-black">View Car</Button>{" "}
+                <Button variant="destructive" className="text-white">View Car</Button>{" "}
               </Link>
             </CardFooter>
           </Card>
@@ -198,7 +198,7 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/66322e9c7229e5ff78d71026"}>
-                <Button variant="destructive" className="text-black">View Car</Button>
+                <Button variant="destructive" className="text-white">View Car</Button>
               </Link>
             </CardFooter>
           </Card>
@@ -228,7 +228,7 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/66322f077229e5ff78d71028"}>
-                <Button variant="destructive"  className="text-black">View Car</Button>
+                <Button variant="destructive"  className="text-white">View Car</Button>
               </Link>
             </CardFooter>
           </Card>
@@ -266,7 +266,7 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/66322f3e7229e5ff78d71029"}>
-                <Button variant="destructive" className="text-black">View Car</Button>
+                <Button variant="destructive" className="text-white">View Car</Button>
               </Link>
             </CardFooter>
           </Card>
@@ -296,7 +296,7 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/66322fb27229e5ff78d7102a"}>
-                <Button variant="destructive" className="text-black">View Car</Button>
+                <Button variant="destructive" className="text-white">View Car</Button>
               </Link>
             </CardFooter>
           </Card>
@@ -326,7 +326,7 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/663230187229e5ff78d7102b"}>
-                <Button variant="destructive" className="text-black">View Car</Button>
+                <Button variant="destructive" className="text-white">View Car</Button>
               </Link>
             </CardFooter>
           </Card>
@@ -381,7 +381,7 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/663230657229e5ff78d7102c"}>
-                <Button variant="destructive" className="text-black">View Car</Button>
+                <Button variant="destructive" className="text-white">View Car</Button>
               </Link>
             </CardFooter>
           </Card>
@@ -430,7 +430,7 @@ export default async function Home() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Link href={"/EspaceDeVente/663231027229e5ff78d7102d"}>
-                <Button variant="destructive" className="text-black">View Car</Button>{" "}
+                <Button variant="destructive" className="text-white">View Car</Button>{" "}
               </Link>
               <Badge variant="outline">New</Badge>
             </CardFooter>

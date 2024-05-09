@@ -53,7 +53,7 @@ function UpdateComment({
             onChange={handleChange}
             value={formData.contentOfComment}
             name="contentOfComment"
-            className="border-black border rounded w-[70%] pl-2"
+            className="font-bold rounded-full bg-gray-200 w-[70%] pl-2 "
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -66,7 +66,7 @@ function UpdateComment({
           >
             <button
               type="submit"
-              className="flex justify-center items-center border bg-[#D0FECF] border-gray-200 rounded-full p-2 hover:border-[#D0FECF] hover:text-white ease-in-out duration-200 hover:-rotate-90"
+              className="flex justify-center items-center bg-[#1A73E8] border-gray-200 rounded-full p-2 hover:border-[#1A73E8] hover:text-white ease-in-out duration-200 hover:-rotate-90"
               >
               {/* Icône d'envoi avec animation */}
               <motion.img

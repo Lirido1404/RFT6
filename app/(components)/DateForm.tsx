@@ -10,7 +10,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { DrawerClose } from "@/components/ui/drawer";
 import { Separator } from "@/components/ui/separator";
 
-function DateForm() {
+
+function DateForm({userId}:{userId:string}) {
+  
   const router = useRouter();
 
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -25,6 +27,7 @@ function DateForm() {
     tag3: string;
     objectif: string;
     content: string;
+    idOfUser:typeof userId;
   }>({
     date: undefined,
     title: "",
@@ -36,6 +39,7 @@ function DateForm() {
     tag3: "",
     objectif: "",
     content: "",
+    idOfUser:userId,
   });
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -48,6 +52,7 @@ function DateForm() {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    
     e.preventDefault();
     setErrorMessage("");
 
@@ -101,7 +106,7 @@ function DateForm() {
           <p className="text-black text-center">{date?.toLocaleDateString()}</p>
         </div>
       </div>
-      <Separator orientation="vertical" className="h-80 bg-black" />
+      <Separator orientation="vertical" className="h-80 bg-[#C91313]" />
       <div className="flex flex-col gap-4">
         <div className="space-y-1">
           <Label htmlFor="title" className="text-black">
@@ -234,7 +239,7 @@ function DateForm() {
 
           <div className="flex flex-col gap-1">
             <Label htmlFor="tag3" className="text-black">
-              Type de voiture
+              Type Voiture
             </Label>
             <select
               name="tag3"
@@ -246,16 +251,15 @@ function DateForm() {
             >
               {" "}
               <option value="Définir">Définir</option>
-              <option value="JDM">JDM</option>
-              <option value="Allemandes">Allemandes</option>
-              <option value="Américaines">Américaines</option>
-              <option value="Anciennes">Anciennes</option>
-              <option value="Nouvelles">Nouvelles</option>
+              <option value="BMW">BMW</option>
+              <option value="Mercedes">Mercedes</option>
+              <option value="Audi">Audi</option>
+              
             </select>
           </div>
         </div>
       </div>
-      <Separator orientation="vertical" className="h-80 bg-black" />
+      <Separator orientation="vertical" className="h-80 bg-[#C91313]" />
 
       <div className="flex flex-col gap-4">
         <div className="space-y-1">

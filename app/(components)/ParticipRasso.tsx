@@ -67,7 +67,7 @@ function ParticipRasso({
   return (
     <>
       <button
-        className="p-2 bg-[#D0FECF] text-black rounded-lg cursor-pointer"
+        className="p-2 bg-[#1A73E8] text-white hover:bg-[#4480c9] ease-in-out duration-100 rounded-lg cursor-pointer"
         onClick={handleClick}
       >
         Je participe

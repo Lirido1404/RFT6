@@ -41,7 +41,7 @@ function CalandarComp() {
 
   const bookedDays = convertedNewDate?.map((event: any) => event.date);
 
-  const bookedStyle = { border: "2px solid #FF7E14", borderRadius: "6px" };
+  const bookedStyle = { border: "2px solid #C91313", borderRadius: "6px" };
 
   // Définir le type de modifiers explicitement
   const modifiers: DayModifiers = { booked: datesconverties || [] };

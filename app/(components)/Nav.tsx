@@ -83,7 +83,7 @@ function Nav() {
             <>
               <Link
                 href={"/Account"}
-                className=" py-1 px-4 ease-in-out duration-200 rounded text-lg bg-[#D0FECF] text-black"
+                className=" py-1 px-4 ease-in-out duration-200 rounded text-base bg-[#1A73E8] text-white"
               >
                 Login
               </Link>

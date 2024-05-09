@@ -15,6 +15,7 @@ const datePostSchema = new Schema(
     tag3:String,
     objectif:String,
     content: String,
+    idOfUser:String,
   },
   {
     timestamps: true,

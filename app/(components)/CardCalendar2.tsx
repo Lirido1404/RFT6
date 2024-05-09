@@ -9,8 +9,9 @@ import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
+import DeleteRasso from "./DeleteRasso";
 
-function CardCalendar2({ newdate }: any) {
+function CardCalendar2({ newdate,userId }: any) {
   const router = useRouter();
   const { toast } = useToast();
 
@@ -57,7 +58,7 @@ function CardCalendar2({ newdate }: any) {
         action: (
           <ToastAction
             altText="Ajouter"
-            className="border-[#00ff59]"
+            className="border-[#1A73E8]"
             onClick={() =>
               toast({
                 title: "La fonctionnalité arrive ...",
@@ -122,12 +123,12 @@ function CardCalendar2({ newdate }: any) {
 
       {truedate.map((event: any, index: number) => (
         <motion.div
-          className="overflow-hidden mt-2 w-full"
+          className=" mt-2 w-full"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
           key={event._id}
         >
-          <Card className="rounded border-[#FF7E14]">
+          <Card className="rounded border-[#C91313] relative">
             <CardHeader className="p-2 font-bold  ">
               {event.title}
             </CardHeader>
@@ -135,16 +136,20 @@ function CardCalendar2({ newdate }: any) {
             <CardContent className="p-1 flex flex-col gap-1">
               <span className="text-sm flex items-center gap-2">
                 <Separator
-                  className="h-6 w-[2px] rounded ml-2 bg-[#FF7E14]"
+                  className="h-6 w-[2px] rounded ml-2 bg-[#C91313]"
                   orientation="vertical"
                 />
-                <p className="ml-1 lg:w-[40ch]">{event.objectif}</p>
+                <p className="ml-1 lg:w-[40ch]">Obj : {event.objectif}</p>
               </span>
               <Link href={`/Rassemblements/${event._id}`} className="p-2">
-                <Button variant={'secondary'} className="border-2 bg-white border-[#D0FECF]">
+                <Button variant={'secondary'} className="border-2 bg-white border-[#1A73E8]">
                 Voir informations
                 </Button>
               </Link>
+              {userId === event.idOfUser && (
+                <div className="absolute -top-4 right-4 z-2"><DeleteRasso idOfRasso={event._id} /></div>
+                
+              )}
             </CardContent>
           </Card>
         </motion.div>

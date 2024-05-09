@@ -15,7 +15,7 @@ function DeleteComment ({ idOfComment }:{idOfComment:string}){
   };
 
   return (
-    <button className='bg-white p-1 border-2 border-red-500 text-white rounded-lg hover:bg-red-500 ease-in-out duration-150' onClick={handleDelete}>
+    <button className='bg-white p-1 border-2 border-[#1A73E8] text-white rounded-lg hover:bg-[#1A73E8] ease-in-out duration-150' onClick={handleDelete}>
       <img src="/Images/trashcann.svg" className="w-6 w-6" alt="" />
     </button>
   );

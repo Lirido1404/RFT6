@@ -13,7 +13,7 @@ function StatsRasso({
 }) {
   return (
     <motion.div
-      className="flex gap-4 border-l-2 border-[#FF7E14]"
+      className="flex gap-4 border-l-2 border-[#C91313]"
       initial={{ opacity: 0, x: -50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
@@ -26,7 +26,7 @@ function StatsRasso({
         transition={{ delay: 0.1, duration: 0.5 }}
       >
         <img src="/Images/peoplee.svg" alt="Personnes" className="h-8 w-8" />
-        <span className="text-[#FF7E14] font-bold">
+        <span className="text-[#C91313] font-bold">
           {" "}
           {resParticipations}{" "}
           {resParticipations <= 1 ? "participant" : "participants"}{" "}
@@ -43,7 +43,7 @@ function StatsRasso({
           alt="Commentaires"
           className="h-8 w-8"
         />
-        <span className="text-[#FF7E14] font-bold">
+        <span className="text-[#C91313] font-bold">
           {res0} {res0 <= 1 ? "commentaire" : "commentaires"}
         </span>
       </motion.p>
@@ -55,7 +55,7 @@ function StatsRasso({
           transition={{ delay: 0.3, duration: 0.5 }}
         >
           <img src="/Images/checkk.svg" className="h-8 w-8" alt="Check" />
-          <span className="text-[#FF7E14] font-bold"> status : Inscrit </span>
+          <span className="text-[#C91313] font-bold"> status : Inscrit </span>
         </motion.p>
       ) : (
         <motion.p
@@ -65,7 +65,7 @@ function StatsRasso({
           transition={{ delay: 0.3, duration: 0.5 }}
         >
           <img src="/Images/crosss.svg" className="h-8 w-8" alt="Check" />
-          <span className="text-[#FF7E14] font-bold">
+          <span className="text-[#C91313] font-bold">
             {" "}
             status : Non inscrit{" "}
           </span>

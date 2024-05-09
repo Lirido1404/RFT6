@@ -6,16 +6,21 @@ import Image from "next/image";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import DateForm from "../(components)/DateForm";
 import { Button } from "@/components/ui/button";
+import { getServerSession } from "next-auth";
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import DrawerTriggercomp from "../(components)/DrawerTriggercomp";
 
-function page() {
+async function page() {
+  const session = await getServerSession(options);
+ const userId = session?.user?.id;
   return (
     <>
       <Drawer>
         <div className="flex flex-col gap-2 p-16">
           <h2 className="font-bold text-5xl">Dates de rassemblements</h2>
-          <DrawerTrigger className="w-60 rounded text-black bg-[#D0FECF] px-4 py-2 shadow">
+           {session ? <DrawerTrigger className="w-60 rounded text-white bg-[#1A73E8] px-4 py-2 shadow">
           Je crée mon rasso !
-          </DrawerTrigger>
+          </DrawerTrigger> : <DrawerTriggercomp/> }
         </div>
         <div className="flex flex-col lg:flex-row justify-center  gap-4 w-[70%] mx-auto ">
           <div className="flex flex-col lg:flex-row gap-4">
@@ -43,13 +48,13 @@ function page() {
               </>
             }
           >
-            <CardCalendar />
+            <CardCalendar userId={userId} />
           </Suspense>
         </div>
 
         <DrawerContent>
           <div className="mt-10 flex justify-center items-center mb-10">
-            <DateForm />
+            <DateForm userId={userId} />
           </div>
         </DrawerContent>
       </Drawer>

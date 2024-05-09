@@ -19,7 +19,7 @@ function Exit() {
         className="text-black"
         variant={"destructive"}
       >
-        <p className="">Deconnexion</p>
+        <p className="text-white">Deconnexion</p>
       </Button>
     </div>
   );

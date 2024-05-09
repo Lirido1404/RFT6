@@ -39,7 +39,7 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
           </div>
           <div
             className={`w-[70%] rounded-2xl p-4 shadow relative ${
-              sessionid === comment.idOfUser ? "bg-[#ffbc8f] shadow-lg" : ""
+              sessionid === comment.idOfUser ? "bg-[#ff6262] shadow-lg" : ""
             } ${index === res.length - 1 ? "elementascale" : ""}`}
           >
             <div className="flex justify-between">
@@ -47,7 +47,7 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
                 <></>
               ) : (
                 <>
-                  <p className="text-[#FF7E14]">
+                  <p className="text-[#C91313]">
                     {comment.nomOfProprio
                       ? comment.nomOfProprio
                       : "Utilisateur"}
@@ -59,7 +59,7 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
                 <>
                   <div className="flex gap-2 py-1 absolute -top-4 right-4">
                     <button
-                      className="p-1 border-2 border-[#D0FECF] text-white rounded-lg bg-white hover:bg-[#D0FECF] ease-in-out duration-150"
+                      className="p-1 border-2 border-[#1A73E8] text-white rounded-lg bg-white hover:bg-[#1A73E8] ease-in-out duration-150"
                       onClick={() => setEditMode(!editMode)}
                     >
                       <img src="/Images/pencill.svg" className="w-6" alt="" />
@@ -73,7 +73,7 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
                 <>
                   <div className="flex gap-2 py-1 absolute -top-4 right-4">
                     <button
-                      className="p-1 border-2 border-[#D0FECF] text-white bg-white rounded-lg hover:bg-[#D0FECF] ease-in-out duration-150"
+                      className="p-1 border-2 border-[#1A73E8] text-white bg-white rounded-lg hover:bg-[#1A73E8] ease-in-out duration-150"
                       onClick={() => setEditMode(!editMode)}
                     >
                       <img src="/Images/backk.svg" className="w-6" alt="" />
@@ -90,7 +90,7 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
               />
             ) : (
               <p className={`mt-2 ${
-                sessionid === comment.idOfUser ? " " : ""
+                sessionid === comment.idOfUser ? " text-white" : ""
               }`}>{comment.contentOfComment}</p>
             )}
             <p className="text-sm absolute bottom-0 right-0 py-2 px-4 text-gray-400">
