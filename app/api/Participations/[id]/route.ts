@@ -9,7 +9,7 @@ export async function PUT(req: Request, { params }: { params: any }) {
     const updateParticipationData = await Particip.findByIdAndUpdate(id, {
       participation: body.participation,
     });
-    return NextResponse.json({ message: "Contact updated" }, { status: 200 });
+    return NextResponse.json({ message: "Votre participation à été modifié" }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
   }
@@ -19,10 +19,10 @@ export async function PUT(req: Request, { params }: { params: any }) {
 export async function DELETE(req:Request, { params }:{params:any}) {
     try {
       const { id } = params;
-      console.log(id);
+      console.log( "Id delete :" +  id);
       await Particip.findByIdAndDelete(id);
-      return NextResponse.json({ message: "Contact Deleted" }, { status: 200 });
+      return NextResponse.json({ message: "Vous avez été désinscrit." }, { status: 200 });
     } catch (err) {
-      return NextResponse.json({ message: "Error", err }, { status: 500 });
+      return NextResponse.json({ message: "Erreur lors de la désinscription", err }, { status: 500 });
     }
   }

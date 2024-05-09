@@ -18,8 +18,8 @@ import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import { countParticipationsOfRasso } from "@/app/api/Participations/countParticipations";
 import {verifParticipation} from "@/app/api/Participations/verifParticipationUser";
-import DesinscriptionRasso from "./DesinscriptionRasso";
 import DesinscriptionRassoEnDelete from "./DesinscriptionRassoEnDelete";
+import StatsRasso from "./StatsRasso";
 async function FetchOneEvent({ id }: any) {
 
 
@@ -104,11 +104,7 @@ async function FetchOneEvent({ id }: any) {
     <div>
       <div className="p-16 " >
         <h3 className=" font-bold text-4xl text-black inline-block p-4 border-l-2 border-[#FF7E14] ">{res.title}</h3>
-        <div className="flex gap-4 border-l-2 border-[#FF7E14]">
-        <p className="ml-4 flex gap-1 items-center"><img src="/Images/peoplee.svg" alt="Personnes" className="h-8 w-8" /> <span className="text-[#FF7E14] font-bold"> {resParticipations} {resParticipations<=1 ? "participant" : "participants"} </span> </p>
-        <p className="ml-4 flex gap-1 items-center"> <img src="/Images/commentss.svg" alt="Commentaires" className="h-8 w-8" /> <span className="text-[#FF7E14] font-bold">{res0} {res0<=1 ? "commentaire" : "commentaires"}</span></p>
-        {verificationPart ? <p className="ml-4 flex gap-1 items-center"><img src="/Images/checkk.svg" className="h-8 w-8" alt="Check" /><span className="text-[#FF7E14] font-bold"> status : Inscrit </span> </p> : <p className="ml-4 flex gap-1 items-center"><img src="/Images/crosss.svg" className="h-8 w-8" alt="Check" /><span className="text-[#FF7E14] font-bold"> status : Non inscrit </span> </p>}
-        </div>
+        <StatsRasso verificationPart={verificationPart} resParticipations={resParticipations} res0={res0} />
       </div>
       <div className="flex gap-20 p-20">
         <div className="w-[40%] ">

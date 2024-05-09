@@ -33,7 +33,19 @@ function ParticipRasso({
         },
         body: JSON.stringify(data),
       });
-      router.refresh();
+      const responseData = await res.json();
+      if (res.ok) {
+        // Si la création de la participation est réussie, afficher un toast avec le message retourné
+        toast({
+          description: <div className="flex gap-1 items-center"> <img src="/Images/checkk.svg" alt="checkk" className="h-6 w-6" /> Vous êtes inscrit. </div>          
+        });
+        router.refresh();
+      } else {
+        // Si la création de la participation échoue, afficher un toast avec le message d'erreur retourné
+        toast({
+          description: <div className="flex gap-1 items-center"> <img src="/Images/checkk.svg" alt="checkk" className="h-6 w-6" /> Erreur pendant votre inscription.</div>          
+        });
+      }
     } else {
       e.preventDefault();
       toast({

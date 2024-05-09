@@ -5,6 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
 function DesinscriptionRassoEnDelete({
   idParticipation,
 }: {
@@ -20,7 +21,19 @@ function DesinscriptionRassoEnDelete({
       const res = await fetch(`/api/Participations/${idParticipation}`, {
         method: "DELETE",
       });
-      router.refresh();
+      const data = await res.json();
+      if (res.ok) {
+        toast({
+          description: <div className="flex gap-1 items-center"> <img src="/Images/checkk.svg" alt="checkk" className="h-6 w-6" /> {data.message} </div>,
+          
+        });
+        router.refresh();
+      } else {
+        toast({
+          description: <div className="flex gap-1 items-center"> <img src="/Images/crosss.svg" alt="cross" className="h-6 w-6" /> {data.message} </div>,
+          
+        });
+      }
     } else {
       e.preventDefault();
       toast({
@@ -38,12 +51,13 @@ function DesinscriptionRassoEnDelete({
       });
     }
   };
+
   return (
     <button
       className="p-2 bg-[#D0FECF] text-black rounded-lg cursor-pointer"
       onClick={handleClick}
     >
-      Je me désinscris (comp2)
+      Me désinscrire
     </button>
   );
 }

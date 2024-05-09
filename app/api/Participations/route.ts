@@ -1,4 +1,5 @@
 import Particip from "@/app/(models)/Participation";
+import { NextResponse } from "next/server";
 
 export async function POST(req: Request, res:Response) {
   try {
@@ -12,12 +13,13 @@ export async function POST(req: Request, res:Response) {
 
     // Si une participation existe déjà, renvoyer une réponse appropriée
     if (existingParticipation) {
-      console.log("Déjà existant");
+      return NextResponse.json({ message: "Vous êtes déjà inscrit." }, { status: 200 });
     } else {
-      return await Particip.create(participationsData);
+      await Particip.create(participationsData);
+      return NextResponse.json({ message: "Vous êtes inscrit." }, { status: 200 });
     }
   } catch (err) {
-    console.log(err);
+    return NextResponse.json({ message: "Erreur pendant votre inscription" }, { status: 200 });
   }
 }
 
