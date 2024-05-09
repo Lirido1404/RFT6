@@ -64,6 +64,7 @@ function LoginForm() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className="space-y-1">
@@ -75,6 +76,7 @@ function LoginForm() {
               placeholder="Mot de passe"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <Button type="submit" className="mt-4">
