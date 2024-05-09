@@ -8,6 +8,7 @@ export async function verifParticipation(id:any,sessionid:any) {
     const existingParticipation = await Particip.findOne({
       idOfUser: sessionid,
       idOfRasso: id,
+      participation:true,
     });
 
     return existingParticipation;

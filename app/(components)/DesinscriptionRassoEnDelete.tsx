@@ -1,0 +1,51 @@
+"use client";
+import React, { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useToast } from "@/components/ui/use-toast";
+import { ToastAction } from "@/components/ui/toast";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+function DesinscriptionRassoEnDelete({
+  idParticipation,
+}: {
+  idParticipation: string;
+}) {
+  const router = useRouter();
+  const { data: session } = useSession();
+  const { toast } = useToast();
+
+  const handleClick = async (e: any) => {
+    if (session) {
+      e.preventDefault();
+      const res = await fetch(`/api/Participations/${idParticipation}`, {
+        method: "DELETE",
+      });
+      router.refresh();
+    } else {
+      e.preventDefault();
+      toast({
+        description: (
+          <span className="text-sm flex items-center">
+            <img src="/Images/crosss.svg" alt="" className="w-6 h-6" />
+            <p>Connectez-vous pour accéder à ce service.</p>
+          </span>
+        ),
+        action: (
+          <ToastAction altText="Me connecter" className="border-[#FF7E14]">
+            <Link href={"/Account"}>Me connecter</Link>
+          </ToastAction>
+        ),
+      });
+    }
+  };
+  return (
+    <button
+      className="p-2 bg-[#D0FECF] text-black rounded-lg cursor-pointer"
+      onClick={handleClick}
+    >
+      Je me désinscris (comp2)
+    </button>
+  );
+}
+
+export default DesinscriptionRassoEnDelete;

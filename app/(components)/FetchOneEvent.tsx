@@ -18,6 +18,8 @@ import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import { countParticipationsOfRasso } from "@/app/api/Participations/countParticipations";
 import {verifParticipation} from "@/app/api/Participations/verifParticipationUser";
+import DesinscriptionRasso from "./DesinscriptionRasso";
+import DesinscriptionRassoEnDelete from "./DesinscriptionRassoEnDelete";
 async function FetchOneEvent({ id }: any) {
 
 
@@ -137,7 +139,8 @@ async function FetchOneEvent({ id }: any) {
               <p className="text-justify mt-4"> {res.content} </p>
             </CardContent>
             <CardFooter className=" justify-between">
-              <ParticipRasso idsession={sessionid} idRasso={id} />
+              {/* {verificationPart ? <DesinscriptionRasso idParticipation={verificationPart._id} /> : <ParticipRasso idsession={sessionid} idRasso={id} />}*/}
+              {verificationPart ? <DesinscriptionRassoEnDelete idParticipation={verificationPart._id} /> : <ParticipRasso idsession={sessionid} idRasso={id} />}
               <div className="flex gap-1">
               <Badge className="bg-white border border-[#FF7E14] hover:bg-[#FF7E14]">
                 {returnTag1()}
