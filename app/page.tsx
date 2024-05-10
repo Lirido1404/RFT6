@@ -24,6 +24,9 @@ import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { options } from "./api/auth/[...nextauth]/options";
+import Page1card from "./(components)/(page1card)/Page1card";
+import Page1Card2 from "./(components)/(page1card)/Page1Card2";
+import Page1AudiPres from "./(components)/(page1card)/Page1AudiPres";
 
 export default async function Home() {
     const session = await getServerSession(options);
@@ -93,7 +96,7 @@ export default async function Home() {
         <Separator />
       </div>
 
-      <div className="w-full flex mt-20 ">
+      <div className="w-full flex mt-20 bg-[#1f1f1f]">
         <div className="w-1/2 flex items-center justify-center ">
           <Image
             src="/Images/bmwlogocolor.svg"
@@ -111,127 +114,8 @@ export default async function Home() {
           />
         </div>
 
-        <div className="w-1/2  grid grid-cols-2 p-20 gap-8">
-          <Card className="hover:shadow-lg ease-in-out duration-150">
-            <CardHeader className="">
-              <div className="rounded-full">
-                <Image
-                  src="https://images.pexels.com/photos/12249428/pexels-photo-12249428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  width={200}
-                  height={200}
-                  alt="bmw"
-                  className=" w-16 h-16 object-cover rounded-full"
-                />
-              </div>
-
-              <div>
-                <CardTitle>BMW M2 G87</CardTitle>
-                <CardDescription>2023</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                distinctio?
-              </p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/6632011ee9d6f145b719ee17"}>
-                <Button variant="destructive" className="text-white">View Car</Button>
-              </Link>
-              <Badge variant="outline">New</Badge>
-            </CardFooter>
-          </Card>
-
-          <Card className="hover:shadow-lg ease-in-out duration-150">
-            <CardHeader className="">
-              <div className="rounded-full">
-                <Image
-                  src="https://images.pexels.com/photos/18554951/pexels-photo-18554951/free-photo-of-route-soleil-couchant-coucher-de-soleil-coucher-du-soleil.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  width={200}
-                  height={200}
-                  alt="bmw"
-                  className=" w-16 h-16 object-cover rounded-full"
-                />
-              </div>
-
-              <div>
-                <CardTitle>BMW M3 G80</CardTitle>
-                <CardDescription>2022</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                distinctio?
-              </p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/6632024d85c2358e94f0d410"}>
-                <Button variant="destructive" className="text-white">View Car</Button>{" "}
-              </Link>
-            </CardFooter>
-          </Card>
-
-          <Card className="hover:shadow-lg ease-in-out duration-150">
-            <CardHeader className="">
-              <div className="rounded-full">
-                <Image
-                  src="https://wallpapercave.com/wp/wp3192871.jpg"
-                  width={200}
-                  height={200}
-                  alt="bmw"
-                  className=" w-16 h-16 object-cover rounded-full"
-                />
-              </div>
-
-              <div>
-                <CardTitle>BMW 135i</CardTitle>
-                <CardDescription>2007</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                distinctio?
-              </p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/66322e9c7229e5ff78d71026"}>
-                <Button variant="destructive" className="text-white">View Car</Button>
-              </Link>
-            </CardFooter>
-          </Card>
-
-          <Card className="hover:shadow-lg ease-in-out duration-150">
-            <CardHeader className="">
-              <div className="rounded-full">
-                <Image
-                  src="https://carfans.fr/wp-content/uploads/2022/10/BMW-M5-CS-arriere.jpg.webp"
-                  width={200}
-                  height={200}
-                  alt="bmw"
-                  className=" w-16 h-16 object-cover rounded-full"
-                />
-              </div>
-
-              <div>
-                <CardTitle>BMW M5 CS F90</CardTitle>
-                <CardDescription>2021</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                distinctio?
-              </p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/66322f077229e5ff78d71028"}>
-                <Button variant="destructive"  className="text-white">View Car</Button>
-              </Link>
-            </CardFooter>
-          </Card>
+        <div className="w-1/2  grid grid-cols-2 p-20 gap-8 ">
+          <Page1card/>
         </div>
       </div>
 
@@ -241,95 +125,7 @@ export default async function Home() {
 
       <div className="w-full flex mt-20">
         <div className="w-1/2  grid grid-cols-2 p-20 gap-8">
-          <Card className="hover:shadow-lg ease-in-out duration-150">
-            <CardHeader className="">
-              <div className="rounded-full">
-                <Image
-                  src="https://img.goodfon.com/original/2048x1351/0/eb/mercedes-c63-amg-black-face-front-autumn-sight-w205.jpg"
-                  width={200}
-                  height={200}
-                  alt="bmw"
-                  className=" w-16 h-16 object-cover rounded-full"
-                />
-              </div>
-
-              <div>
-                <CardTitle>Mercedes W205</CardTitle>
-                <CardDescription>2015</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                distinctio?
-              </p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/66322f3e7229e5ff78d71029"}>
-                <Button variant="destructive" className="text-white">View Car</Button>
-              </Link>
-            </CardFooter>
-          </Card>
-
-          <Card className="hover:shadow-lg ease-in-out duration-150">
-            <CardHeader className="">
-              <div className="rounded-full">
-                <Image
-                  src="https://images.pexels.com/photos/19597723/pexels-photo-19597723/free-photo-of-route-campagne-voiture-vehicule.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  width={200}
-                  height={200}
-                  alt="bmw"
-                  className=" w-16 h-16 object-cover rounded-full"
-                />
-              </div>
-
-              <div>
-                <CardTitle>Mercedes Class G</CardTitle>
-                <CardDescription>2012</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                distinctio?
-              </p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/66322fb27229e5ff78d7102a"}>
-                <Button variant="destructive" className="text-white">View Car</Button>
-              </Link>
-            </CardFooter>
-          </Card>
-
-          <Card className="hover:shadow-lg ease-in-out duration-150">
-            <CardHeader className="">
-              <div className="rounded-full">
-                <Image
-                  src="https://images.pexels.com/photos/19758543/pexels-photo-19758543/free-photo-of-voiture-vehicule-mercedes-argent.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  width={200}
-                  height={200}
-                  alt="bmw"
-                  className=" w-16 h-16 object-cover rounded-full"
-                />
-              </div>
-
-              <div>
-                <CardTitle>Mercedes CLS63</CardTitle>
-                <CardDescription>2010</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                distinctio?
-              </p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Link href={"/EspaceDeVente/663230187229e5ff78d7102b"}>
-                <Button variant="destructive" className="text-white">View Car</Button>
-              </Link>
-            </CardFooter>
-          </Card>
+          <Page1Card2/>
         </div>
 
         <div className="w-1/2 flex items-center justify-center ">
@@ -354,16 +150,16 @@ export default async function Home() {
         <Separator />
       </div>
 
-      <div className="w-[95%] mx-auto flex justify-between mt-20">
+      <div className="p-8 flex items-center justify-between mt-20 bg-[#1f1f1f]">
         <div className="p-8">
-          <Card className="hover:shadow-lg ease-in-out duration-150">
+          <Card className="hover:shadow-lg hover:shadow-white ease-in-out duration-100">
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
                   src="https://images.pexels.com/photos/38637/car-audi-auto-automotive-38637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   width={200}
                   height={200}
-                  alt="bmw"
+                  alt="audi"
                   className=" w-16 h-16 object-cover rounded-full"
                 />
               </div>
@@ -389,23 +185,17 @@ export default async function Home() {
 
         <div className="flex justify-center items-start ">
           <Image
-            src="/Images/audilogo.svg"
+            src="/Images/audilogo2.svg"
             alt="r8"
             width={500}
             height={500}
-            className=" scale-y-100 z-1 hover:scale-y-50 pt-10 duration-200 ease-in-out "
+            className=" scale-y-100 z-1 hover:scale-y-50 pt-10 duration-200 ease-in-out  "
           />
-          <Image
-            src="/Images/audi/audir8.png"
-            alt="r8"
-            width={300}
-            height={300}
-            className="absolute z-2"
-          />
+          <Page1AudiPres/>
         </div>
 
         <div className="p-8">
-          <Card className="hover:shadow-lg ease-in-out duration-150">
+          <Card className="hover:shadow-lg hover:shadow-white ease-in-out duration-100">
             <CardHeader className="">
               <div className="rounded-full">
                 <Image
