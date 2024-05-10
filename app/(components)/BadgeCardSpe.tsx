@@ -18,15 +18,16 @@ interface Props {
   perf: string;
   power: string;
   emission: string;
+  colorText:string;
 }
 
 
-function BadgeCardSpe({ perf, power, emission }:Props) {
+function BadgeCardSpe({ perf, power, emission,colorText }:Props) {
   return (
     <div className="flex gap-4">
-      <Badge variant="outline">{power}</Badge>
-      <Badge variant="outline">{perf}</Badge>
-      <Badge variant="outline" className={`${emission}`}>
+      <Badge variant="outline" className={`${colorText}`}>{power}</Badge>
+      <Badge variant="outline" className={`${colorText}`}>{perf}</Badge>
+      <Badge variant="outline" className={`${emission} ${colorText}`} >
         {emission}
       </Badge>
     </div>

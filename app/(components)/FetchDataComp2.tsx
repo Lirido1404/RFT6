@@ -122,7 +122,7 @@ async function FetchDataComp2({ id }: any) {
       </div>
       <div className="grid grid-cols-2 mt-10 gap-6">
         <div className="p-0">
-          <Card className="hover:shadow-lg ease-in-out duration-150 w-[100%] mx-auto ">
+          <Card className="hover:shadow-lg ease-in-out duration-150 w-[100%] mx-auto bg-black text-white ">
             <CardHeader className="p-0">
               <div className="flex justify-center">
                 <div className="">
@@ -131,7 +131,7 @@ async function FetchDataComp2({ id }: any) {
                     width={200}
                     height={200}
                     alt="bmw"
-                    className=" w-64 object-cover rounded-b-lg"
+                    className=" w-64 object-cover rounded-b-lg border border-[#C91313]"
                   />
                 </div>
               </div>
@@ -150,6 +150,7 @@ async function FetchDataComp2({ id }: any) {
                 emission={response.emission}
                 power={response.power}
                 perf={response.performance}
+                colorText = 'text-white'
               />
             </CardFooter>
           </Card>
