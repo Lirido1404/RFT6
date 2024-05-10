@@ -65,6 +65,7 @@ function PartieScrollArea({randomCars}:any) {
                   emission={car.emission}
                   power={car.power}
                   perf={car.performance}
+                  colorText='text-black'
                 />
               </CardFooter>
             </Card>
