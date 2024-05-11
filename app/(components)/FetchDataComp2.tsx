@@ -25,6 +25,7 @@ import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import AjouterAvis from "./AjouterAvis";
 import PartieScrollArea from "./PartieScrollArea";
+import AnimInset from "./AnimInset";
 
 interface Comment {
   _id: string;
@@ -33,8 +34,6 @@ interface Comment {
   description: string;
   note: number;
 }
-
-
 
 interface Props {
   params: {
@@ -118,41 +117,24 @@ async function FetchDataComp2({ id }: any) {
         {returnLogo()}
       </div>
       <div className="mt-6">
-        <Button variant="destructive" className="text-white">Buy car</Button>
+        <Button variant="destructive" className="text-white">
+          Buy car
+        </Button>
       </div>
       <div className="grid grid-cols-2 mt-10 gap-6">
         <div className="p-0">
-          <Card className="hover:shadow-lg ease-in-out duration-150 w-[100%] mx-auto bg-black text-white ">
-            <CardHeader className="p-0">
-              <div className="flex justify-center">
-                <div className="">
-                  <Image
-                    src={response.image}
-                    width={200}
-                    height={200}
-                    alt="bmw"
-                    className=" w-64 object-cover rounded-b-lg border border-[#C91313]"
-                  />
-                </div>
-              </div>
-              <div className="p-6">
-                <CardTitle>{response.name}</CardTitle>
-                <CardDescription> {response.datesortie} </CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="">
-                <p className="text-justify">{response.description}</p>
-              </div>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <BadgeCardSpe
-                emission={response.emission}
-                power={response.power}
-                perf={response.performance}
-                colorText = 'text-white'
+          <Card className="hover:shadow-lg ease-in-out duration-150 w-[100%] CardBG mx-auto text-white relative overflow-hidden h-full">
+            <div className="relative h-full">
+              <Image
+                src={response.image}
+                width={1000}
+                height={1000}
+                alt="bmw"
+                className="w-full h-full absolute object-cover"
               />
-            </CardFooter>
+              
+              <AnimInset response={response} />
+            </div>
           </Card>
         </div>
         <table className="shadow hover:shadow-lg">
@@ -275,7 +257,7 @@ async function FetchDataComp2({ id }: any) {
               </h4>
             </DrawerTrigger>
           ) : (
-            <AjouterAvis/>
+            <AjouterAvis />
           )}
 
           <DrawerContent>
@@ -323,7 +305,7 @@ async function FetchDataComp2({ id }: any) {
       <h2 className="text-4xl font-bold mt-20 pcar">Achats similaires</h2>
 
       <div className="mt-14">
-        <PartieScrollArea randomCars={randomCars}/>
+        <PartieScrollArea randomCars={randomCars} />
       </div>
     </div>
   );

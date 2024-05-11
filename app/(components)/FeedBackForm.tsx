@@ -120,11 +120,11 @@ function FeedBackForm({ idOfProduct }:{idOfProduct:string}) {
         </div>
 
         <DrawerFooter>
-          <Button>
+          <Button className="bg-[#1A73E8]">
             <input
               type="submit"
               value={"Envoyer"}
-              className="w-full h-full cursor-pointer"
+              className="w-full h-full cursor-pointer "
             />
           </Button>
           <DrawerClose asChild>

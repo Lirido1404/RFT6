@@ -295,7 +295,7 @@ function DateForm({userId}:{userId:string}) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <Button type="submit" className="mt-4 w-full">
+        <Button type="submit" className="mt-4 w-full bg-[#1A73E8] ">
           Ajouter
         </Button>
         <DrawerClose className="w-full ">

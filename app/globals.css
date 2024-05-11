@@ -115,3 +115,8 @@
 .floublanc{
   filter: drop-shadow(rgba(255, 255, 255, 0.5) 0px 0px 8px);
 }
+
+.testimgborderblack{
+  border-image: fill 0 linear-gradient(#0003, #000);
+}
+
