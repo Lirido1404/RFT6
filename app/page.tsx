@@ -33,8 +33,7 @@ export default async function Home() {
 
   return (
     <main className="">
-      <div className="relative w-full h-[800px] ">
-        <div className="w-full  flex justify-evenly p-2 mt-6">
+      <div className="w-[70%] flex justify-evenly mx-auto mt-6">
           <Link href={"#bmw"}>
             <Image
               src="/Images/bmwlogo.svg"
@@ -63,7 +62,9 @@ export default async function Home() {
             />
           </Link>
         </div>
-        <div className="p-32">
+      <div className="relative w-full h-[800px] ">
+        
+        <div className="ml-32 mt-20">
           <div className="flex flex-col gap-2">
             <p className=" opacity-65">Mercedes 190 evo 2</p>
             <h1 className="text-7xl font-bold opac">
@@ -87,12 +88,12 @@ export default async function Home() {
             width={1200}
             height={600}
             alt="evo2"
-            className="drop-shadow-xl absolute bottom-16 right-0 animvoit1"
+            className="drop-shadow-xl absolute bottom-60 right-0 animvoit1"
           />
         </div>
       </div>
 
-      <div className="w-[70%] mx-auto mt-20" id="bmw">
+      <div className="w-[70%] mx-auto" id="bmw">
         <Separator />
       </div>
 

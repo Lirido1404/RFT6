@@ -7,6 +7,7 @@ import Footer from "./(components)/Footer";
 import AuthProvider from "./(components)/AuthProvider";
 import { Toaster } from "@/components/ui/toaster";
 import AjoutNotifAuth from "./(components)/AjoutNotifAuth";
+import ServNav from "./(components)/ServNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +34,7 @@ export default function RootLayout({
           <AjoutNotifAuth />
           <FlecheRemonte />
           <div>
-            <Nav />
+            <ServNav/>
           </div>
           {children}
           <Footer />
