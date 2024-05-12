@@ -1,14 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Nav.css";
 import { useSession } from "next-auth/react";
-import { Separator } from "@/components/ui/separator";
 import { signOut } from "next-auth/react";
+import ProfilStats from "./(MonCompte)/ProfilStats";
 
-function Nav({session}:any) {
+function Nav({ session,commentOfIdUser,participationOfIdUser }: {session:any,commentOfIdUser:number,participationOfIdUser:number}) {
   const userImage = session?.user?.image;
   const [dropDown, setDropDown] = useState(false);
   const [showMenu, setShowMenu] = useState(false); // State pour gérer l'affichage du menu déroulant
@@ -89,42 +89,45 @@ function Nav({session}:any) {
           <div className="relative">
             {session ? (
               <>
-              <img
-              src={userImage || "/Images/profilsvg1.svg"}
-              alt=""
-              className={`w-8 h-8 rounded-full cursor-pointer hover:outline-2 hover:outline-gray-500 outline outline-offset-1 ${
-                userImage ? "" : "bg-white p-1"
-              }  `}
-              onClick={toggleMenu}
-            />
+                <img
+                  src={userImage || "/Images/profilsvg1.svg"}
+                  alt=""
+                  className={`w-8 h-8 rounded-full cursor-pointer hover:outline-2 hover:outline-gray-500 outline outline-offset-1 ${showMenu ? "outline-2 outline-[#C91313] " : ""} ${
+                    userImage ? "" : "bg-white p-1"
+                  }  `}
+                  onClick={toggleMenu}
+                />
               </>
-            ):<>
-            <img
-              src={"/Images/profilsvg2.svg"}
-              alt=""
-              className={`w-8 h-8 rounded-full cursor-pointer hover:outline-2 hover:outline-gray-500 outline outline-offset-1 ${
-                userImage ? "" : "bg-white p-1"
-              }  `}
-              onClick={toggleMenu}
-            />
-            </>}
+            ) : (
+              <>
+                <img
+                  src={"/Images/profilsvg2.svg"}
+                  alt=""
+                  className={`w-8 h-8 rounded-full cursor-pointer hover:outline-2 hover:outline-gray-500 outline outline-offset-1 ${showMenu ? "outline-2 outline-[#C91313] " : ""} ${
+                    userImage ? "" : "bg-white p-1"
+                  }  `}
+                  onClick={toggleMenu}
+                />
+              </>
+            )}
             <AnimatePresence>
               {showMenu && (
                 <motion.div
-                  initial={{  opacity: 0 }}
-                  animate={{  opacity: 1 }}
-                  exit={{  opacity: 0 }}
-                  transition={{  opacity: { duration: 0.35 } }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ opacity: { duration: 0.35 } }}
                   className="absolute flex gap-4 bg-white shadow shadow-[#C91313] z-80 mt-2 rounded-md left-1/2 transform -translate-x-1/2 min-w-48 p-2 overflow-hidden"
                 >
                   <div>
                     <div className="p-1">
                       <p className="text-left overflow-hidden whitespace-nowrap max-w-full">
-                       <span> {userImage ? "Salut" : ""}</span> <span className="font-bold ">{prenom}</span> 
+                        <span> {userImage ? "Salut" : ""}</span>{" "}
+                        <span className="font-bold ">{prenom}</span>
                       </p>
                       {session ? (
                         <p
-                          className="text-sm text-gray-500 cursor-pointer hover:underline whitespace-nowrap hover:text-[#C91313] ease-in-out duration-200 "
+                          className="text-sm text-gray-500 cursor-pointer hover:underline whitespace-nowrap hover:text-[#C91313] ease-in-out duration-200 italic "
                           onClick={() => signOut({ callbackUrl: "/" })}
                         >
                           Me déconnecter
@@ -132,35 +135,14 @@ function Nav({session}:any) {
                       ) : (
                         <Link
                           href={"/Account"}
-                          className="text-sm text-center text-gray-500 cursor-pointer hover:underline whitespace-nowrap hover:text-[#1A73E8] ease-in-out duration-200 "
+                          className="text-sm text-center text-gray-500 cursor-pointer hover:underline whitespace-nowrap hover:text-[#1A73E8] ease-in-out duration-200 italic "
                         >
                           Me Connecter
                         </Link>
                       )}
                     </div>
 
-                    {session && (
-                      <>
-                        <Separator className="w-[70%] mx-auto mt-1 bg-[#C91313] " />
-
-                        <span className=" hover:text-blue-500 ease-out duration-200 cursor-pointer text-center p-1 flex items-center whitespace-nowrap ">
-                          <img
-                            src="/Images/commentss.svg"
-                            alt=""
-                            className="w-8 h-8"
-                          />
-                          <Link href={`/MonCompte/Messages/${userId}`} className=" ">Mes messages</Link>
-                        </span>
-                        <span className=" gap-1 text-black hover:text-blue-500 ease-out duration-200 cursor-pointer text-center p-1 flex items-center whitespace-nowrap ">
-                          <img
-                            src="/Images/carssport.svg"
-                            alt=""
-                            className="w-7 h-7"
-                          />
-                          <Link href={`/MonCompte/Rassemblements/${userId}`} className=" ">Mes rassos</Link>
-                        </span>
-                      </>
-                    )}
+                    {session && <ProfilStats userId={userId} commentOfIdUser={commentOfIdUser} participationOfIdUser={participationOfIdUser} />}
                   </div>
                   {resPaiement && (
                     <>

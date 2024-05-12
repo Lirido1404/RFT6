@@ -38,9 +38,13 @@ async function page() {
           <span className="flex gap-1 items-center">
             
             <img src="/Images/commentss.svg" alt="" className="w-8 h-8" />
-            {commentOfIdUser} {commentOfIdUser <= 1 ? "message" : "messages"}
+            {commentOfIdUser}
           </span>
-          
+          <span className="flex gap-1 items-center">
+            
+          <img src="/Images/carssport.svg" alt="" className="w-7 h-7" />
+            {participationRassoOfIdUser}
+          </span>
           </div>
         </div>
       </div>
