@@ -100,9 +100,9 @@ function AnimInset({ response }: any) {
               onClick={(e) => {
                 setAffichage(!affichage);
               }}
-              className="px-4 py-1 bg-[#1A73E8]  text-white rounded-[6px] mt-4 w-40"
+              className="px-4 py-1 bg-[#1A73E8]  text-white rounded-[6px] mt-4 w-48 flex justify-center"
             >
-              Voir Image (5s)
+              <span className="flex gap-1"> <img src="/Images/eyee.svg" className="h-6 w-6" alt="" /> <p>Voir Image (5s)</p></span>
             </motion.button>
           </AnimatePresence>
         </>

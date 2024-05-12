@@ -5,7 +5,6 @@ export async function PUT(req: Request, { params }: { params: any }) {
   try {
     const id = params.id;
     const body = await req.json();
-    console.log("contenu de la participation en front" + body)
     const updateParticipationData = await Particip.findByIdAndUpdate(id, {
       participation: body.participation,
     });
@@ -19,7 +18,6 @@ export async function PUT(req: Request, { params }: { params: any }) {
 export async function DELETE(req:Request, { params }:{params:any}) {
     try {
       const { id } = params;
-      console.log( "Id delete :" +  id);
       await Particip.findByIdAndDelete(id);
       return NextResponse.json({ message: "Vous avez été désinscrit." }, { status: 200 });
     } catch (err) {

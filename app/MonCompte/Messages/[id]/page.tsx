@@ -3,12 +3,17 @@ import { countCommentOfIdUser } from "@/app/api/Comments/[id]/countCommentOfIdUs
 import { countParticipationsOfIdUser } from "@/app/api/Participations/[id]/countRassoOfIdUser";
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
+import { commentsOfIdUser } from "@/app/api/Comments/[id]/commentsOfIdUser";
+
 async function page() {
   const session = await getServerSession(options);
   const commentOfIdUser = await countCommentOfIdUser(session?.user?.id);
   const participationRassoOfIdUser = await countParticipationsOfIdUser(
     session?.user?.id
   );
+
+  const commentairesIdUser = await commentsOfIdUser(session?.user?.id);
+
   const userImage = session?.user?.image;
   return (
     <div>
@@ -35,14 +40,22 @@ async function page() {
         <div>
           <p className="text-4xl font-bold"> {session?.user?.name}</p>
           <div className="flex gap-2">
-          <span className="flex gap-1 items-center">
-            
-            <img src="/Images/commentss.svg" alt="" className="w-8 h-8" />
-            {commentOfIdUser} {commentOfIdUser <= 1 ? "message" : "messages"}
-          </span>
-          
+            <span className="flex gap-1 items-center">
+              <img src="/Images/commentss.svg" alt="" className="w-8 h-8" />
+              <span className="font-bold">
+                {" "}
+                {commentOfIdUser}{" "}
+                {commentOfIdUser <= 1 ? "message" : "messages"}
+              </span>{" "}
+              sur toute la plateforme.
+            </span>
           </div>
         </div>
+      </div>
+      <div className="grid grid-cols-3 bg-red-500">
+        {commentairesIdUser.map((comment: any) => (
+          <p key={comment._id}>{comment.contentOfComment}</p>
+        ))}
       </div>
     </div>
   );

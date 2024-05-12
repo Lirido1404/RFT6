@@ -1,8 +1,8 @@
 import Comments from "@/app/(models)/Comments";
 
-export async function countAllComments(id: string) {
+export async function commentsOfIdUser(id: string) {
     try {
-      const count = await Comments.countDocuments({ idOfRasso: id });
+      const count = await Comments.find({ idOfUser: id });
       return count;
     } catch (err) {
       console.log(err);

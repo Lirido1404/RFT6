@@ -3,7 +3,6 @@ import FeedBack from "@/app/(models)/FeedBack";
 
 export async function POST(req:Request) {
   try {
-    console.log("fonction POST bien appelée");
     const feedBackData = await req.json(); // Récupérer directement les données du corps de la requête
 
     await FeedBack.create(feedBackData);
