@@ -12,7 +12,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const res = await fetchOneEvent(params.id);
-  const titleforMetadata = `Rasso | ${res.title}`;
+  const titleforMetadata = `Rasso - ${res.title}`;
   return {
     title: titleforMetadata,
   };

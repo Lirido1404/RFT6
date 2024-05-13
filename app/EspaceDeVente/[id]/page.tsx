@@ -10,7 +10,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const car = await fetchOneCar(params.id);
-  const titleforMetadata = `Vente | ${car.name}`
+  const titleforMetadata = `Vente - ${car.name}`
   return {
     title: titleforMetadata,
   };
