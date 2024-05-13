@@ -1,6 +1,22 @@
 import FetchOneEvent from "@/app/(components)/FetchOneEvent";
 import Image from "next/image";
 import React, { Suspense } from "react";
+import { Metadata, ResolvingMetadata } from "next";
+import { fetchOneEvent } from "@/app/api/Date/fetchoneevent";
+
+
+
+
+export async function generateMetadata(
+  { params, searchParams }: any,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const res = await fetchOneEvent(params.id);
+  const titleforMetadata = `Rasso | ${res.title}`;
+  return {
+    title: titleforMetadata,
+  };
+}
 
 function page({ params }: any) {
   return (
