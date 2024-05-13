@@ -41,6 +41,8 @@ interface Props {
   };
 }
 
+
+
 async function FetchDataComp2({ id }: any) {
   const session = await getServerSession(options);
 
@@ -132,7 +134,7 @@ async function FetchDataComp2({ id }: any) {
                 alt="bmw"
                 className="w-full h-full absolute object-cover"
               />
-              
+
               <AnimInset response={response} />
             </div>
           </Card>
