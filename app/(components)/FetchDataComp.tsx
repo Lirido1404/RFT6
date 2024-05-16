@@ -5,12 +5,13 @@ import CompForFetch1 from "./CompForFetch1";
 
 
 
-async function FetchDataComp({ page, query }: { page: number,query:string }) {
+async function FetchDataComp({ page, query }: { page: number; query: string }) {
   page = !page || page < 1 ? 1 : page;
   const perPage = 4;
 
-  const res = await fetchDataCar(perPage, page,query);
-  const totalPages = Math.ceil(res?.itemCount / perPage);
+  const res = await fetchDataCar(perPage, page, query);
+  const itemCount = res?.itemCount ?? 0; // Utilisation de l'opérateur de coalescence nulle pour définir itemCount sur 0 si res ou res.itemCount est undefined
+  const totalPages = Math.ceil(itemCount / perPage);
   const prevPage = page - 1 > 0 ? page - 1 : 1;
   const nextPage = page + 1;
   return (

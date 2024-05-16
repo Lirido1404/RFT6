@@ -9,11 +9,15 @@ export async function fetchDataCar(
     console.log("la voiture est : " + query);
     let items; // Déclaration de la variable en dehors des blocs if/else
     if (query == "") {
-      items = await Cars.find()
-        .skip(perPage * (page - 1))
-        .limit(perPage);
+      items = await Cars.aggregate([
+        { $sample: { size: perPage } },
+        { $skip: perPage * (page - 1) },
+      ]);
     } else {
-      items = await Cars.find({ name: { $regex: query, $options: "i" } });
+      items = await Cars.aggregate([
+        { $match: { name: { $regex: query, $options: "i" } } },
+        { $sample: { size: perPage } },
+      ]);
     }
 
     const itemCount = await Cars.countDocuments();

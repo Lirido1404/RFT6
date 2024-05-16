@@ -22,7 +22,7 @@ const truncateDescription = (description: string, maxLength: number) => {
   return description;
 };
 
-function CompForFetch1({ res, page, prevPage, nextPage, totalPages }: any) {
+function CompForFetch1({ res, page, prevPage, nextPage, totalPages,query }: any) {
 
 
   
@@ -34,8 +34,9 @@ function CompForFetch1({ res, page, prevPage, nextPage, totalPages }: any) {
         <p>Audi</p>
       </div>
       <div className="p-4">
+        <p className="text-sm italic"> {res?.itemCount} éléments trouvés </p>
         <div className=" mt-4">
-          <SearchBar/>
+          <SearchBar />
         </div>{" "}
         <div className="flex justify-center items-center">
           {page === 1 ? (
@@ -49,7 +50,11 @@ function CompForFetch1({ res, page, prevPage, nextPage, totalPages }: any) {
             <Link href={`?page=${nextPage}`}>Next</Link>
           )}
         </div>
-        <div className="grid grid-cols-2 w-[100%] mx-auto mt-6 gap-8">
+        <div
+          className={`grid ${
+            query == "" ? "grid-cols-2" : "grid-cols-3"
+          } w-[100%] mx-auto mt-6 gap-8`}
+        >
           {res?.items.map((car: any, index: number) => (
             <motion.div
               key={car._id}
