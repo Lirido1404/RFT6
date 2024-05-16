@@ -1,10 +1,6 @@
 import Cars from "@/app/(models)/Carsdetail";
 
-export async function fetchDataCar2(
-  perPage: number,
-  page: number,
-  query: string
-) {
+export async function fetchDataCar2() {
   try {
     
 
