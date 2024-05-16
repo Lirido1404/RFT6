@@ -34,13 +34,7 @@ function CompForFetch1({
   pageNumbers,
   offsetNumber,
 }: any) {
-const rechercheTag = useDateStore((state) => state.rechercheTag);
-const setRechercheTag = useDateStore((state) => state.setRechercheTag);
 
-let resfilter = [];
-if (rechercheTag !== "") {
-  resfilter = res.items.filter((el: any) => el.tag === rechercheTag);
-}
   return (
     <div className="flex">
       <div className="w-[30%] flex items-center flex-col">
@@ -51,7 +45,7 @@ if (rechercheTag !== "") {
           <div>
             <p className="text-sm italic flex gap-2 items-center">
               <img src="/Images/carssport.svg" className="w-8 h-8" alt="" />
-              {resfilter?.itemCount} trouvées {rechercheTag}
+              {res?.itemCount} trouvées
             </p>
 
             <SearchBar />
@@ -100,7 +94,7 @@ if (rechercheTag !== "") {
             query == "" ? "grid-cols-2" : "grid-cols-3"
           } w-[100%] mx-auto mt-6 gap-8 `}
         >
-          {resfilter?.map((car: any, index: number) => (
+          {res?.items.map((car: any, index: number) => (
             <motion.div
               key={car._id}
               className=""

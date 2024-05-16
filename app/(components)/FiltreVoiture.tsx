@@ -4,8 +4,8 @@ import { Separator } from "@/components/ui/separator";
 import { useDateStore } from "@/app/(store)/store";
 
 function FiltreVoiture() {
- const rechercheTag = useDateStore((state) => state.rechercheTag);
- const setRechercheTag = useDateStore((state) => state.setRechercheTag);
+
+  const [rechercheTag,setRechercheTag] = useState("")
 
 
   const tagBmw = ()=>{
@@ -22,7 +22,9 @@ function FiltreVoiture() {
 
   return (
     <>
-      <h1 className="text-center text-4xl font-bold mt-4">Filtre </h1>
+      <h1 className="text-center text-4xl font-bold mt-4">
+        Filtre {rechercheTag}{" "}
+      </h1>
       <div className="w-full mt-4 flex flex-col gap-1  " onClick={tagBmw}>
         <Separator className="w-[70%] bg-[#C91313] mx-auto" />
         <span className="flex items-center justify-between hover:bg-[#C91313] hover:text-white hover:gap-3 ease-in-out duration-150 cursor-pointer">
