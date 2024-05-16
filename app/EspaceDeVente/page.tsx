@@ -2,11 +2,10 @@ import React, { Suspense } from "react";
 import FetchDataComp from "../(components)/FetchDataComp";
 import Link from "next/link";
 import Image from "next/image";
-function Page({searchParams}:any) {
-  let page = parseInt(searchParams.page,10);
-  console.log("Car : " + searchParams.car);
-   const query = searchParams?.car || "";
-
+function Page({ searchParams }: any) {
+  let page = parseInt(searchParams.page, 10);
+  const querycar = searchParams?.car || "";
+  const queryfiltrebarrelaterale = searchParams?.marque || "";
 
   return (
     <div>
@@ -26,7 +25,7 @@ function Page({searchParams}:any) {
           </>
         }
       >
-        <FetchDataComp page={page} query={query} />
+        <FetchDataComp page={page} query={querycar} marquequery={queryfiltrebarrelaterale} />
       </Suspense>
     </div>
   );

@@ -1,12 +1,17 @@
 'use client'
 import React from 'react'
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useDateStore } from "@/app/(store)/store";
 
 function SearchBar() {
+
+  const rechercheTag = useDateStore((state) => state.rechercheTag); // Utilisation de rechercheTag depuis le store
+  const setRechercheTag = useDateStore((state) => state.setRechercheTag); // Utilisation de setRechercheTag depuis le store
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
   const handleSearch = (term:string) => {
+    setRechercheTag("")
     const params = new URLSearchParams(searchParams);
     if (term) {
       params.set("car", term);
