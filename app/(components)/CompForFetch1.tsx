@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import BadgeCardSpe from "../(components)/BadgeCardSpe";
 import { motion } from "framer-motion";
 import SearchBar from "./SearchBar";
+import FiltreVoiture from "./FiltreVoiture";
 
 const truncateDescription = (description: string, maxLength: number) => {
   if (description.length > maxLength) {
@@ -22,38 +23,74 @@ const truncateDescription = (description: string, maxLength: number) => {
   return description;
 };
 
-function CompForFetch1({ res, page, prevPage, nextPage, totalPages,query }: any) {
-
-
-  
+function CompForFetch1({
+  res,
+  page,
+  prevPage,
+  nextPage,
+  totalPages,
+  query,
+  pageNumbers,
+  offsetNumber,
+}: any) {
   return (
     <div className="flex">
-      <div className="w-[30%] border-4 border-black">
-        <p>BMW</p>
-        <p>Mercedes</p>
-        <p>Audi</p>
+      <div className="w-[30%] flex items-center flex-col">
+        <FiltreVoiture />
       </div>
-      <div className="p-4">
-        <p className="text-sm italic"> {res?.itemCount} éléments trouvés </p>
-        <div className=" mt-4">
-          <SearchBar />
+      <div className="p-4 w-full">
+        <div className=" mt-4 flex justify-between ">
+          <div>
+            <p className="text-sm italic flex gap-2 items-center">
+              <img src="/Images/carssport.svg" className="w-8 h-8" alt="" />
+              {res?.itemCount} trouvées
+            </p>
+
+            <SearchBar />
+          </div>
+
+          <div className="flex items-end">
+            <div className="flex items-center justify-end gap-4">
+              {page === 1 ? (
+                <div className="opacity-60 cursor-default">Previous</div>
+              ) : (
+                <Link href={`?page=${prevPage}`} className="hover:underline">
+                  Previous
+                </Link>
+              )}
+              |
+              <div className="flex items-center gap-1">
+                {" "}
+                {pageNumbers.map((pageNumber: number, index: number) => (
+                  <Link
+                    key={index}
+                    href={`?page=${pageNumber}`}
+                    className={`${
+                      page === pageNumber
+                        ? "bg-[#C91313] font-bold  text-white"
+                        : "hover:bg-red-300"
+                    } py-2 px-4 rounded-lg ease-in-out duration-200`}
+                  >
+                    {" "}
+                    {pageNumber}{" "}
+                  </Link>
+                ))}
+              </div>
+              |
+              {page === totalPages ? (
+                <div className="opacity-60 cursor-default">Next</div>
+              ) : (
+                <Link href={`?page=${nextPage}`} className="hover:underline">
+                  Next
+                </Link>
+              )}
+            </div>
+          </div>
         </div>{" "}
-        <div className="flex justify-center items-center">
-          {page === 1 ? (
-            <div className="opacity-60">Previous</div>
-          ) : (
-            <Link href={`?page=${prevPage}`}>Previous</Link>
-          )}
-          {page === totalPages ? (
-            <div className="opacity-60">Next</div>
-          ) : (
-            <Link href={`?page=${nextPage}`}>Next</Link>
-          )}
-        </div>
         <div
           className={`grid ${
             query == "" ? "grid-cols-2" : "grid-cols-3"
-          } w-[100%] mx-auto mt-6 gap-8`}
+          } w-[100%] mx-auto mt-6 gap-8 `}
         >
           {res?.items.map((car: any, index: number) => (
             <motion.div

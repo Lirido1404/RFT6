@@ -14,6 +14,15 @@ async function FetchDataComp({ page, query }: { page: number; query: string }) {
   const totalPages = Math.ceil(itemCount / perPage);
   const prevPage = page - 1 > 0 ? page - 1 : 1;
   const nextPage = page + 1;
+
+  const pageNumbers = [];
+  const offsetNumber = 3;
+  for (let i = page - offsetNumber; i<=page + offsetNumber;i++){
+    if(i>=1 && i <= totalPages){
+      pageNumbers.push(i)
+    }
+  }
+
   return (
     <div>
       <CompForFetch1
@@ -23,6 +32,8 @@ async function FetchDataComp({ page, query }: { page: number; query: string }) {
         nextPage={nextPage}
         totalPages={totalPages}
         query={query}
+        pageNumbers={pageNumbers}
+        offsetNumber={offsetNumber}
       />
     </div>
   );
