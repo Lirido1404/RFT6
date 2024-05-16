@@ -15,6 +15,7 @@ import BadgeCardSpe from "../(components)/BadgeCardSpe";
 import { motion } from "framer-motion";
 import SearchBar from "./SearchBar";
 import FiltreVoiture from "./FiltreVoiture";
+import { useDateStore } from "@/app/(store)/store";
 
 const truncateDescription = (description: string, maxLength: number) => {
   if (description.length > maxLength) {
@@ -33,6 +34,13 @@ function CompForFetch1({
   pageNumbers,
   offsetNumber,
 }: any) {
+const rechercheTag = useDateStore((state) => state.rechercheTag);
+const setRechercheTag = useDateStore((state) => state.setRechercheTag);
+
+let resfilter = [];
+if (rechercheTag !== "") {
+  resfilter = res.items.filter((el: any) => el.tag === rechercheTag);
+}
   return (
     <div className="flex">
       <div className="w-[30%] flex items-center flex-col">
@@ -43,7 +51,7 @@ function CompForFetch1({
           <div>
             <p className="text-sm italic flex gap-2 items-center">
               <img src="/Images/carssport.svg" className="w-8 h-8" alt="" />
-              {res?.itemCount} trouvées
+              {resfilter?.itemCount} trouvées {rechercheTag}
             </p>
 
             <SearchBar />
@@ -92,7 +100,7 @@ function CompForFetch1({
             query == "" ? "grid-cols-2" : "grid-cols-3"
           } w-[100%] mx-auto mt-6 gap-8 `}
         >
-          {res?.items.map((car: any, index: number) => (
+          {resfilter?.map((car: any, index: number) => (
             <motion.div
               key={car._id}
               className=""
