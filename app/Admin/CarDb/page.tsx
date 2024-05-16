@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import BadgeCardSpe from "@/app/(components)/BadgeCardSpe";
 import Link from "next/link";
-import { fetchDataCar } from "@/app/api/Cars/FetchDataOfCar";
+import { fetchDataCar2 } from "@/app/api/Cars/FetchDataOfCarsSansFiltre";
 
 
 
@@ -25,7 +25,7 @@ const truncateDescription = (description:string, maxLength:number) => {
   return description;
 };
 async function page() {
-  const cars: any = await fetchDataCar();
+  const cars: any = await fetchDataCar2();
   return (
     <div>
       <div className="grid grid-cols-3 w-[80%] mx-auto mt-12 gap-8">
