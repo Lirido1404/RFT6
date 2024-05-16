@@ -18,7 +18,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import FeedBackForm from "@/app/(components)/FeedBackForm";
 import StarsDisplay from "@/app/(components)/StarsDisplay";
-import { fetchDataCar } from "@/app/api/Cars/FetchDataOfCar";
+import { fetchDataCar2 } from "@/app/api/Cars/FetchDataOfCarsSansFiltre";
 import { fetchAllFeedBack } from "@/app/api/FeedBack/fetchfeedbacks";
 import { fetchOneCar } from "@/app/api/Cars/[id]/fetchonecardataaa";
 import { getServerSession } from "next-auth";
@@ -49,7 +49,7 @@ async function FetchDataComp2({ id }: any) {
   const response = await fetchOneCar(id.id);
   console.log(response);
 
-  const cars: any = await fetchDataCar(); // Définir le type explicite pour `cars`
+  const cars: any = await fetchDataCar2(); // Définir le type explicite pour `cars`
 
   const selectRandomCars = () => {
     const randomCars = [];
