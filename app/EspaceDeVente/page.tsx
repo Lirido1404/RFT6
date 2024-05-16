@@ -2,7 +2,12 @@ import React, { Suspense } from "react";
 import FetchDataComp from "../(components)/FetchDataComp";
 import Link from "next/link";
 import Image from "next/image";
-function page() {
+function Page({searchParams}:any) {
+  let page = parseInt(searchParams.page,10);
+  console.log("Car : " + searchParams.car);
+   const query = searchParams?.car || "";
+
+
   return (
     <div>
       <Suspense
@@ -21,10 +26,10 @@ function page() {
           </>
         }
       >
-        <FetchDataComp />
+        <FetchDataComp page={page} query={query} />
       </Suspense>
     </div>
   );
 }
 
-export default page;
+export default Page;
