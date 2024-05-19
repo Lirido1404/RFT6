@@ -3,12 +3,22 @@ import { countCommentOfIdUser } from "@/app/api/Comments/[id]/countCommentOfIdUs
 import { countParticipationsOfIdUser } from "@/app/api/Participations/[id]/countRassoOfIdUser";
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
+import { validParticipationsOfIdUser } from "@/app/api/Participations/[id]/validRassoOfIdUser";
+import {dataDesRassos} from "@/app/api/Participations/[id]/essaiJointureMongodb";
 async function PageRasso() {
   const session = await getServerSession(options);
   const participationRassoOfIdUser = await countParticipationsOfIdUser(
     session?.user?.id
   );
   const userImage = session?.user?.image;
+  const validparticipations = await validParticipationsOfIdUser(
+    session?.user?.id
+  );
+
+const ids = validparticipations.map(participation => participation.idOfRasso);
+
+const datas = await dataDesRassos(ids);
+
   return (
     <div>
       <div className="flex items-center gap-2 p-24">
@@ -34,19 +44,25 @@ async function PageRasso() {
         <div>
           <p className="text-4xl font-bold"> {session?.user?.name}</p>
           <div className="flex gap-2">
-          <span className="flex gap-1 items-center">
-            
-          <img src="/Images/carssport.svg" alt="" className="w-7 h-7" />
-            {participationRassoOfIdUser}
-          </span>
+            <span className="flex gap-1 items-center">
+              <img src="/Images/carssport.svg" alt="" className="w-7 h-7" />
+              {participationRassoOfIdUser}
+            </span>
           </div>
         </div>
       </div>
 
-
-          <div className="w-[80%] mx-auto grid grid-cols-3">
-
-          </div>
+      <div className="w-[80%] mx-auto grid grid-cols-3">
+      {datas.map((data)=>(
+        <>
+        <div>
+        <p> {data._id} </p>
+        <p> {data.title} </p>
+        </div>
+        </>
+      ))}
+      </div>
+      
 
     </div>
   );
