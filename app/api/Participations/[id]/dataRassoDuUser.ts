@@ -1,8 +1,8 @@
 import Date from "@/app/(models)/DatePost";
 
-export async function dataDesRassos(id:any) {
+export async function dataDesRassos(ids:any) {
     try {
-        const results = await Date.find({_id:id})
+        const results = await Date.find({_id:ids})
         return results;
     } catch (err) {
         console.log(err);

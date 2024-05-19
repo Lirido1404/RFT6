@@ -4,7 +4,7 @@ import { countParticipationsOfIdUser } from "@/app/api/Participations/[id]/count
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import { validParticipationsOfIdUser } from "@/app/api/Participations/[id]/validRassoOfIdUser";
-import {dataDesRassos} from "@/app/api/Participations/[id]/essaiJointureMongodb";
+import {dataDesRassos} from "@/app/api/Participations/[id]/dataRassoDuUser";
 async function PageRasso() {
   const session = await getServerSession(options);
   const participationRassoOfIdUser = await countParticipationsOfIdUser(
