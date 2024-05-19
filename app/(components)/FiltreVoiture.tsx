@@ -9,8 +9,8 @@ function FiltreVoiture() {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const rechercheTag = useDateStore((state) => state.rechercheTag); // Utilisation de rechercheTag depuis le store
-  const setRechercheTag = useDateStore((state) => state.setRechercheTag); // Utilisation de setRechercheTag depuis le store
+  const rechercheTag = useDateStore((state) => state.rechercheTag); 
+  const setRechercheTag = useDateStore((state) => state.setRechercheTag); 
 
 
   useEffect(() => {
