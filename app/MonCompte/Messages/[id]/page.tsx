@@ -2,7 +2,8 @@ import PageComms from "@/app/(components)/(MonCompte)/PageComms";
 import React, { Suspense } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-function page() {
+function page({params}:any) {
+  const idOfAccount = params.id;
   return (
     <div>
       <Suspense
@@ -32,7 +33,7 @@ function page() {
           </>
         }
       >
-        <PageComms />
+        <PageComms idOfAccount={idOfAccount} />
       </Suspense>
     </div>
   );

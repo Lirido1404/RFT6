@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import DeleteComment from "./DeleteComment";
 import UpdateComment from "./UpdateComment";
+import Link from "next/link";
+import PPPourProfil from "./PPPourProfil";
 
 function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
   const [editMode, setEditMode] = useState(false);
@@ -30,13 +32,7 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
             sessionid === comment.idOfUser ? "flex-row-reverse " : ""
           } `}
         >
-          <div className="flex items-end">
-            <img
-              src={comment.profilePic || "/Images/profilsvg1.svg"}
-              alt="img"
-              className="h-16 w-16 rounded-full border border-gray-200"
-            />
-          </div>
+          <PPPourProfil profilPic={comment.profilePic}  idOfUser = {comment.idOfUser} />
           <div
             className={`w-[70%] rounded-2xl p-4 shadow relative ${
               sessionid === comment.idOfUser ? "bg-[#ff6262] shadow-lg" : ""

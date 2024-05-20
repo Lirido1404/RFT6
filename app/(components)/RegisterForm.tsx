@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 interface FormData {
   email: string;
   password: string;
+  nom: string;
 }
 
 function RegisterForm() {
@@ -17,6 +18,7 @@ function RegisterForm() {
   const [formData, setFormData] = useState<FormData>({
     email: "",
     password: "",
+    nom: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -57,6 +59,18 @@ function RegisterForm() {
       </CardHeader>
       <CardContent className="space-y-2">
         <form onSubmit={handleSubmit} method="post">
+        <div className="space-y-1">
+            <Label htmlFor="nom">Nom</Label>
+            <Input
+              type="text"
+              name="nom"
+              id="nom"
+              onChange={handleChange}
+              required={true}
+              value={formData.nom}
+              placeholder="Nom"
+            />
+          </div>
           <div className="space-y-1">
             <Label htmlFor="email">Email</Label>
             <Input

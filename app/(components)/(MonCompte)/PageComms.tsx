@@ -26,7 +26,7 @@ import Link from "next/link";
 
 
 
-async function PageComms() {
+async function PageComms({idOfAccount}:{idOfAccount:string}) {
 
     
   const formatTimestamp = (timestamp: any) => {
@@ -45,19 +45,19 @@ async function PageComms() {
   };
 
   const session = await getServerSession(options);
-  const commentOfIdUser = await countCommentOfIdUser(session?.user?.id);
+  const commentOfIdUser = await countCommentOfIdUser(idOfAccount);
   const participationRassoOfIdUser = await countParticipationsOfIdUser(
-    session?.user?.id
+    idOfAccount
   );
 
-  const commentairesIdUser = await commentsOfIdUser(session?.user?.id);
+  const commentairesIdUser = await commentsOfIdUser(idOfAccount);
 
   const userImage = session?.user?.image;
   return (
     <div>
       <div className="flex items-center gap-2 p-24">
         <div>
-          {session ? (
+          {session?.user?.id == idOfAccount ? (
             <>
               <img
                 src={userImage || "/Images/profilsvg1.svg"}
@@ -68,15 +68,23 @@ async function PageComms() {
           ) : (
             <>
               <img
-                src={"/Images/profilsvg2.svg"}
+                src={"/Images/profilsvg1.svg"}
                 alt=""
-                className={`w-40 h-40 rounded-full`}
+                className={`w-40 h-40 rounded-full border`}
               />
             </>
           )}
         </div>
         <div>
-          <p className="text-4xl font-bold"> {session?.user?.name}</p>
+          {session?.user?.id == idOfAccount ? (
+            <>
+            <p className="text-4xl font-bold"> {session?.user?.name}</p>
+            </>
+          ):(
+            <>
+            <p className="text-4xl font-bold"> Utilisateur</p>
+            </>
+          )}
           <div className="flex gap-2">
             <span className="flex gap-1 items-center">
               <img src="/Images/commentss.svg" alt="" className="w-8 h-8" />
@@ -99,15 +107,32 @@ async function PageComms() {
             <Link className="" href={`/Rassemblements/${comment.idOfRasso}`}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <img
-                    src={userImage || "/Images/profilsvg1.svg"}
-                    alt=""
-                    className="h-12 w-12 rounded-full"
-                  />
-                  <p className="text-base text-gray-700">
-                    {" "}
-                    {session?.user?.name}{" "}
-                  </p>
+                {session?.user?.id == idOfAccount ? (
+            <>
+              <img
+                src={userImage || "/Images/profilsvg1.svg"}
+                alt=""
+                className={`w-12 h-12 rounded-full`}
+              />
+            </>
+          ) : (
+            <>
+              <img
+                src={"/Images/profilsvg1.svg"}
+                alt=""
+                className={`w-12 h-12 rounded-full border`}
+              />
+            </>
+          )}
+                  {session?.user?.id == idOfAccount ? (
+            <>
+            <p className="text-base text-gray-700"> {session?.user?.name}</p>
+            </>
+          ):(
+            <>
+            <p className="text-base text-gray-700"> Utilisateur</p>
+            </>
+          )}
                 </CardTitle>
               </CardHeader>
 
