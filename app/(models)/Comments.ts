@@ -10,6 +10,7 @@ const commentsSchema = new Schema(
     nomOfProprio:String,
     profilePic:String,
     idOfUser:String,
+    nomOfUser:String,
   },
   {
     timestamps: true,

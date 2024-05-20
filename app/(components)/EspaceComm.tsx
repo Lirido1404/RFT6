@@ -32,7 +32,7 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
             sessionid === comment.idOfUser ? "flex-row-reverse " : ""
           } `}
         >
-          <PPPourProfil profilPic={comment.profilePic}  idOfUser = {comment.idOfUser} />
+          <PPPourProfil profilPic={comment.profilePic}  idOfUser = {comment.idOfUser} nomOfUser ={comment.nomOfUser} sessionid={sessionid}  />
           <div
             className={`w-[70%] rounded-2xl p-4 shadow relative ${
               sessionid === comment.idOfUser ? "bg-[#ff6262] shadow-lg" : ""
@@ -44,9 +44,7 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
               ) : (
                 <>
                   <p className="text-[#C91313]">
-                    {comment.nomOfProprio
-                      ? comment.nomOfProprio
-                      : "Utilisateur"}
+                    {comment.nomOfUser}
                   </p>
                 </>
               )}

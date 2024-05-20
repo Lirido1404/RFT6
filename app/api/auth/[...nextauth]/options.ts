@@ -8,9 +8,8 @@ interface UserDocument extends Document {
   email: string;
   password?: string;
   role?: string;
+  nom?: string;  // Ajoutez le champ nom ici
 }
-
-
 
 export const options = {
   providers: [
@@ -59,7 +58,7 @@ export const options = {
             if (match) {
               delete foundUser.password;
               foundUser["role"] = "Cred";
-              return foundUser;
+              return foundUser;  // foundUser contient maintenant le champ nom
             }
           }
         } catch (err) {
@@ -74,13 +73,15 @@ export const options = {
       if (user) {
         token.role = user.role;
         token.id = user.id || user._id;
+        token.nom = user.nom;  // Ajoutez le champ nom au jeton
       }
       return token;
     },
     async session({ session, token }: { session: any; token: any }) {
-      if (session && token && token.role) {
+      if (session && token) {
         session.user.role = token.role;
         session.user.id = token.id;
+        session.user.nom = token.nom;  // Ajoutez le champ nom à la session
       }
       return session;
     },

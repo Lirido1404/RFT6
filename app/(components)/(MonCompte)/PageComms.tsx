@@ -13,22 +13,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import NomProprioCom from "../(Profil)/NomProprioCom";
+import NomProprioCom2 from "../(Profil)/NomProprioCom2";
+import ImgOfcomment from "../(Profil)/ImgOfcomment";
+import ImgOfProfil from "../(Profil)/ImgOfProfil";
 
-
-
-
-
-
-
-
-
-
-
-
-
-async function PageComms({idOfAccount}:{idOfAccount:string}) {
-
-    
+async function PageComms({ idOfAccount }: { idOfAccount: string }) {
   const formatTimestamp = (timestamp: any) => {
     const options: Intl.DateTimeFormatOptions = {
       year: "numeric",
@@ -67,24 +57,12 @@ async function PageComms({idOfAccount}:{idOfAccount:string}) {
             </>
           ) : (
             <>
-              <img
-                src={"/Images/profilsvg1.svg"}
-                alt=""
-                className={`w-40 h-40 rounded-full border`}
-              />
+              <ImgOfProfil/>
             </>
           )}
         </div>
         <div>
-          {session?.user?.id == idOfAccount ? (
-            <>
-            <p className="text-4xl font-bold"> {session?.user?.name}</p>
-            </>
-          ):(
-            <>
-            <p className="text-4xl font-bold"> Utilisateur</p>
-            </>
-          )}
+          <NomProprioCom2 />
           <div className="flex gap-2">
             <span className="flex gap-1 items-center">
               <img src="/Images/commentss.svg" alt="" className="w-8 h-8" />
@@ -107,32 +85,22 @@ async function PageComms({idOfAccount}:{idOfAccount:string}) {
             <Link className="" href={`/Rassemblements/${comment.idOfRasso}`}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                {session?.user?.id == idOfAccount ? (
-            <>
-              <img
-                src={userImage || "/Images/profilsvg1.svg"}
-                alt=""
-                className={`w-12 h-12 rounded-full`}
-              />
-            </>
-          ) : (
-            <>
-              <img
-                src={"/Images/profilsvg1.svg"}
-                alt=""
-                className={`w-12 h-12 rounded-full border`}
-              />
-            </>
-          )}
                   {session?.user?.id == idOfAccount ? (
-            <>
-            <p className="text-base text-gray-700"> {session?.user?.name}</p>
-            </>
-          ):(
-            <>
-            <p className="text-base text-gray-700"> Utilisateur</p>
-            </>
-          )}
+                    <>
+                      <img
+                        src={userImage || "/Images/profilsvg1.svg"}
+                        alt=""
+                        className={`w-12 h-12 rounded-full`}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <ImgOfcomment img={comment.profilePic} />
+                    </>
+                  )}
+                  
+                  <NomProprioCom nom={comment.nomOfUser} />
+
                 </CardTitle>
               </CardHeader>
 

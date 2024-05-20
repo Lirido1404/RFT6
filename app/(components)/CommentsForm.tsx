@@ -12,11 +12,13 @@ function CommentsForm({
   nameOfProprio,
   userImage,
   idUser,
+  nameOfSessionUser,
 }: {
   id0: string;
   nameOfProprio: string;
   userImage: string;
   idUser: string;
+  nameOfSessionUser:string
 }) {
   const { data: session } = useSession();
   const { toast } = useToast();
@@ -27,6 +29,7 @@ function CommentsForm({
     nomOfProprio: nameOfProprio,
     profilePic: userImage,
     idOfUser: idUser,
+    nomOfUser:nameOfSessionUser
   });
   const router = useRouter();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
