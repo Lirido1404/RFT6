@@ -8,7 +8,7 @@ function ImgOfcomment({ img }: { img: string }) {
 
   useEffect(() => {
     setSrcImage(img);
-  }, [i]);
+  }, [img]);
 
 
   return (
