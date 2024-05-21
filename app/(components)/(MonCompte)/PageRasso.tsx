@@ -4,10 +4,7 @@ import { countParticipationsOfIdUser } from "@/app/api/Participations/[id]/count
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import { validParticipationsOfIdUser } from "@/app/api/Participations/[id]/validRassoOfIdUser";
-import {dataDesRassos} from "@/app/api/Participations/[id]/dataRassoDuUser";
-
-
-
+import { dataDesRassos } from "@/app/api/Participations/[id]/dataRassoDuUser";
 
 import {
   Card,
@@ -20,156 +17,147 @@ import {
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import ImgOfProfil from "../(Profil)/ImgOfProfil";
 
-
-
-
-
-
-async function PageRasso() {
+async function PageRasso({ idOfAccount }: { idOfAccount: string }) {
   const session = await getServerSession(options);
   const participationRassoOfIdUser = await countParticipationsOfIdUser(
-    session?.user?.id
+    idOfAccount
   );
   const userImage = session?.user?.image;
-  const validparticipations = await validParticipationsOfIdUser(
-    session?.user?.id
+  const validparticipations = await validParticipationsOfIdUser(idOfAccount);
+
+  const ids = validparticipations.map(
+    (participation) => participation.idOfRasso
   );
 
-const ids = validparticipations.map(participation => participation.idOfRasso);
+  const datas = await dataDesRassos(ids);
 
-const datas = await dataDesRassos(ids);
-
-
-const returnTag1 = (tag1:string) => {
-
-  switch (tag1) {
-    case "Parking":
-      return (
-        <div className="flex gap-1 items-center p-1">
-          {" "}
-          <img src="/Images/parkingg.svg" alt="" className="h-6 w-6" />{" "}
-          <p className=" font-bold"> {tag1} </p>{" "}
-        </div>
-      );
-      break;
-    case "Exploration":
-      return (
-        <div className="flex gap-1 items-center p-1">
-          {" "}
-          <img
-            src="/Images/explorationn.svg"
-            alt=""
-            className="h-6 w-6"
-          />{" "}
-          <p className=" font-bold"> {tag1} </p>{" "}
-        </div>
-      );
-      break;
-    case "Course":
-      return (
-        <div className="flex gap-1 items-center p-1">
-          {" "}
-          <img src="/Images/racee.svg" alt="" className="h-6 w-6" />{" "}
-          <p className=" font-bold"> {tag1} </p>{" "}
-        </div>
-      );
-      break;
-    case "Fête":
-      return (
-        <div className="flex gap-1 items-center p-1">
-          {" "}
-          <img src="/Images/partyy.svg" alt="" className="h-6 w-6" />{" "}
-          <p className=" font-bold"> {tag1} </p>{" "}
-        </div>
-      );
-      break;
-  }
-};
-
-const returnTag2 = (tag2:string) => {
-
-  return (
-    <div className="flex gap-1 items-center p-1">
-      {" "}
-      <img src="/Images/peoplee.svg" alt="" className="h-6 w-6" />{" "}
-      <p className=" font-bold"> {tag2} </p>
-    </div>
-  );
-};
-
-const returnTag3 = (tag3:string) => {
-
-  switch (tag3) {
-    case "BMW":
-      return (
-        <>
-          <div className="flex gap-2 items-center p-1">
+  const returnTag1 = (tag1: string) => {
+    switch (tag1) {
+      case "Parking":
+        return (
+          <div className="flex gap-1 items-center p-1">
+            {" "}
+            <img src="/Images/parkingg.svg" alt="" className="h-6 w-6" />{" "}
+            <p className=" font-bold"> {tag1} </p>{" "}
+          </div>
+        );
+        break;
+      case "Exploration":
+        return (
+          <div className="flex gap-1 items-center p-1">
             {" "}
             <img
-              src="/Images/bmwlogo.svg"
-              alt="bmwlogo"
+              src="/Images/explorationn.svg"
+              alt=""
               className="h-6 w-6"
             />{" "}
-            <p className=" font-bold"> {tag3} </p>
+            <p className=" font-bold"> {tag1} </p>{" "}
           </div>
-        </>
-      );
-      break;
-    case 'Mercedes':
-      return (
-        <>
-          <div className="flex gap-2 items-center p-1">
+        );
+        break;
+      case "Course":
+        return (
+          <div className="flex gap-1 items-center p-1">
             {" "}
-            <img
-              src="/Images/mercedeslogo.svg"
-              alt="bmwlogo"
-              className="h-6 w-6"
-            />{" "}
-            <p className=" font-bold"> {tag3} </p>
+            <img src="/Images/racee.svg" alt="" className="h-6 w-6" />{" "}
+            <p className=" font-bold"> {tag1} </p>{" "}
           </div>
-        </>
-      );
-      break;
-    case 'Audi':
-      return (
-        <>
-          <div className="flex gap-2 items-center p-1">
+        );
+        break;
+      case "Fête":
+        return (
+          <div className="flex gap-1 items-center p-1">
             {" "}
-            <img
-              src="/Images/audilogo.svg"
-              alt="bmwlogo"
-              className="h-6 w-6"
-            />{" "}
-            <p className=" font-bold"> {tag3} </p>
+            <img src="/Images/partyy.svg" alt="" className="h-6 w-6" />{" "}
+            <p className=" font-bold"> {tag1} </p>{" "}
           </div>
-        </>
-      );
-      break;
-  }
-};
-
-const formatTimestamp = (timestamp: any) => {
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
+        );
+        break;
+    }
   };
-  const date = new Date(timestamp);
-  const formatedDate = date.toLocaleDateString("fr-FR", options);
 
-  return formatedDate;
-};
+  const returnTag2 = (tag2: string) => {
+    return (
+      <div className="flex gap-1 items-center p-1">
+        {" "}
+        <img src="/Images/peoplee.svg" alt="" className="h-6 w-6" />{" "}
+        <p className=" font-bold"> {tag2} </p>
+      </div>
+    );
+  };
 
+  const returnTag3 = (tag3: string) => {
+    switch (tag3) {
+      case "BMW":
+        return (
+          <>
+            <div className="flex gap-2 items-center p-1">
+              {" "}
+              <img
+                src="/Images/bmwlogo.svg"
+                alt="bmwlogo"
+                className="h-6 w-6"
+              />{" "}
+              <p className=" font-bold"> {tag3} </p>
+            </div>
+          </>
+        );
+        break;
+      case "Mercedes":
+        return (
+          <>
+            <div className="flex gap-2 items-center p-1">
+              {" "}
+              <img
+                src="/Images/mercedeslogo.svg"
+                alt="bmwlogo"
+                className="h-6 w-6"
+              />{" "}
+              <p className=" font-bold"> {tag3} </p>
+            </div>
+          </>
+        );
+        break;
+      case "Audi":
+        return (
+          <>
+            <div className="flex gap-2 items-center p-1">
+              {" "}
+              <img
+                src="/Images/audilogo.svg"
+                alt="bmwlogo"
+                className="h-6 w-6"
+              />{" "}
+              <p className=" font-bold"> {tag3} </p>
+            </div>
+          </>
+        );
+        break;
+    }
+  };
+
+  const formatTimestamp = (timestamp: any) => {
+    const options: Intl.DateTimeFormatOptions = {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    };
+    const date = new Date(timestamp);
+    const formatedDate = date.toLocaleDateString("fr-FR", options);
+
+    return formatedDate;
+  };
 
   return (
     <div>
       <div className="flex items-center gap-2 p-24">
         <div>
-          {session ? (
+          {session?.user?.id == idOfAccount ? (
             <>
               <img
                 src={userImage || "/Images/profilsvg1.svg"}
@@ -179,11 +167,7 @@ const formatTimestamp = (timestamp: any) => {
             </>
           ) : (
             <>
-              <img
-                src={"/Images/profilsvg2.svg"}
-                alt=""
-                className={`w-40 h-40 rounded-full`}
-              />
+              <ImgOfProfil text='pageRasso' />
             </>
           )}
         </div>
@@ -196,14 +180,11 @@ const formatTimestamp = (timestamp: any) => {
             </span>
           </div>
         </div>
-        
       </div>
-      
 
       <div className="w-[80%] mx-auto grid grid-cols-3 gap-8">
-      {datas.map((data)=>(
-        
-        <Card
+        {datas.map((data) => (
+          <Card
             key={data._id}
             className="hover:shadow-[#C91313] hover:shadow-md ease-in-out duration-150 overflow-hidden"
           >
@@ -231,34 +212,24 @@ const formatTimestamp = (timestamp: any) => {
                 <p className="italic text-sm opacity-40">
                   Crée le : {formatTimestamp(data.createdAt)}
                 </p>
-                
-
               </CardFooter>
-              <Separator/>
-              
+              <Separator />
 
               <div className="flex justify-center gap-3 p-1">
                 <Badge className="bg-white border border-red-500 text-black hover:text-white ease-in-out duration-150 hover:bg-red-500">
-                {returnTag1(data.tag1)} 
-
+                  {returnTag1(data.tag1)}
                 </Badge>
                 <Badge className="bg-white border border-red-500 text-black hover:text-white ease-in-out duration-150 hover:bg-red-500">
-                {returnTag2(data.tag2)} 
-
+                  {returnTag2(data.tag2)}
                 </Badge>
                 <Badge className="bg-white border border-red-500 text-black hover:text-white ease-in-out duration-150 hover:bg-red-500">
-                {returnTag3(data.tag3)} 
-
+                  {returnTag3(data.tag3)}
                 </Badge>
-                </div>
-                 
+              </div>
             </Link>
           </Card>
-        
-      ))}
+        ))}
       </div>
-      
-
     </div>
   );
 }

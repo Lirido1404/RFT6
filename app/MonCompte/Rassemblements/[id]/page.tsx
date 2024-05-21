@@ -3,7 +3,8 @@ import PageRasso from "@/app/(components)/(MonCompte)/PageRasso";
 import React, { Suspense } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-function page() {
+function page({params}:any) {
+  const idOfAccount = params.id;
   return (
     <div>
       <Suspense
@@ -33,7 +34,7 @@ function page() {
           </>
         }
       >
-        <PageRasso/>
+        <PageRasso idOfAccount={idOfAccount} />
       </Suspense>
     </div>
   );

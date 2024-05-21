@@ -5,7 +5,15 @@ import UpdateComment from "./UpdateComment";
 import Link from "next/link";
 import PPPourProfil from "./PPPourProfil";
 
-function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
+function EspaceComm({
+  res,
+  sessionid,
+  allComments,
+}: {
+  res: any;
+  sessionid: string;
+  allComments:any
+}) {
   const [editMode, setEditMode] = useState(false);
 
   const formatTimestamp = (timestamp: any) => {
@@ -25,14 +33,20 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
 
   return (
     <div className="mt-6">
-      {res?.map((comment: any,index:number) => (
+      {res?.map((comment: any, index: number) => (
         <div
           key={comment._id}
           className={`flex p-2 mt-2 gap-2 relative ${
             sessionid === comment.idOfUser ? "flex-row-reverse " : ""
           } `}
         >
-          <PPPourProfil profilPic={comment.profilePic}  idOfUser = {comment.idOfUser} nomOfUser ={comment.nomOfUser} sessionid={sessionid}  />
+          <PPPourProfil
+            profilPic={comment.profilePic}
+            idOfUser={comment.idOfUser}
+            nomOfUser={comment.nomOfUser}
+            sessionid={sessionid}
+            allComments={allComments}
+          />
           <div
             className={`w-[70%] rounded-2xl p-4 shadow relative ${
               sessionid === comment.idOfUser ? "bg-[#ff6262] shadow-lg" : ""
@@ -43,9 +57,7 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
                 <></>
               ) : (
                 <>
-                  <p className="text-[#C91313]">
-                    {comment.nomOfUser}
-                  </p>
+                  <p className="text-[#C91313]">{comment.nomOfUser}</p>
                 </>
               )}
 
@@ -58,7 +70,7 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
                     >
                       <img src="/Images/pencill.svg" className="w-6" alt="" />
                     </button>
-                    <DeleteComment idOfComment={comment._id}  />
+                    <DeleteComment idOfComment={comment._id} />
                   </div>
                 </>
               )}
@@ -83,9 +95,13 @@ function EspaceComm({ res, sessionid }: { res: any; sessionid: string }) {
                 contentOfComment={comment.contentOfComment}
               />
             ) : (
-              <p className={`mt-2 ${
-                sessionid === comment.idOfUser ? " text-white" : ""
-              }`}>{comment.contentOfComment}</p>
+              <p
+                className={`mt-2 ${
+                  sessionid === comment.idOfUser ? " text-white" : ""
+                }`}
+              >
+                {comment.contentOfComment}
+              </p>
             )}
             <p className="text-sm absolute bottom-0 right-0 py-2 px-4 text-gray-400">
               <span className="italic">

@@ -8,7 +8,7 @@ import { fetchAllComments } from "@/app/api/Comments/fetchAllComments";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import EspaceComm from "./EspaceComm";
-
+import { countAllComments2 } from "@/app/api/Comments/countAllComments";
 
 
 
@@ -20,6 +20,7 @@ async function FetchCommentRasso({ id }: { id: string }) {
   const userImage = session?.user?.image;
   const userMail = session?.user?.email;
   const res = await fetchAllComments(id);
+  const allComments =await  countAllComments2();
   const nameOfSessionUser = session?.user?.nom || session?.user?.name ;
 
   
@@ -44,7 +45,11 @@ async function FetchCommentRasso({ id }: { id: string }) {
         </>
       ) : (
         <>
-          <EspaceComm res={res} sessionid={sessionid}  />
+          <EspaceComm
+            res={res}
+            sessionid={sessionid}
+            allComments={allComments}
+          />
         </>
       )}
 
@@ -53,7 +58,7 @@ async function FetchCommentRasso({ id }: { id: string }) {
         nameOfProprio={nameOfProprio}
         userImage={userImage}
         idUser={sessionid}
-        nameOfSessionUser = {nameOfSessionUser}
+        nameOfSessionUser={nameOfSessionUser}
       />
     </div>
   );

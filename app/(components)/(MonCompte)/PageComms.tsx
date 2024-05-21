@@ -57,7 +57,7 @@ async function PageComms({ idOfAccount }: { idOfAccount: string }) {
             </>
           ) : (
             <>
-              <ImgOfProfil/>
+              <ImgOfProfil text="pageComms" />
             </>
           )}
         </div>
@@ -98,9 +98,8 @@ async function PageComms({ idOfAccount }: { idOfAccount: string }) {
                       <ImgOfcomment img={comment.profilePic} />
                     </>
                   )}
-                  
-                  <NomProprioCom nom={comment.nomOfUser} />
 
+                  <NomProprioCom nom={comment.nomOfUser} />
                 </CardTitle>
               </CardHeader>
 
