@@ -8,13 +8,18 @@ function ImgOfcomment({ img }: { img: string }) {
 
   useEffect(() => {
     setSrcImage(img);
-  }, [img, srcImage]);
+  }, [i]);
+
+
   return (
-    <img
-      src={img || "/Images/profilsvg1.svg"}
-      alt=""
-      className={`w-12 h-12 rounded-full border`}
-    />
+    <>
+      <img
+        src={srcImage || "/Images/profilsvg1.svg"}
+        alt=""
+        className={`w-12 h-12 rounded-full border`}
+      />
+      
+    </>
   );
 }
 

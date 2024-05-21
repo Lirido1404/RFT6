@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useDateStore } from "@/app/(store)/store";
 
-function ImgOfProfil({ text }: { text: string }) {
+function ImgOfProfil({text}:{text:string}) {
   const setSrcImage = useDateStore((state) => state.setSrcImage);
   const srcImage = useDateStore((state) => state.srcImage);
 

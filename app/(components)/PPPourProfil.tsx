@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDateStore } from "@/app/(store)/store";
+
 
 function PPPourProfil({
   profilPic,
@@ -23,6 +25,13 @@ function PPPourProfil({
   const commentFilterBasedOnUser = allComments.filter(
     (comment: any) => comment.idOfUser === idOfUser
   );
+  
+  const setSrcImage = useDateStore((state) => state.setSrcImage);
+  const srcImage = useDateStore((state) => state.srcImage);
+  
+  useEffect(() => {
+    setSrcImage(profilPic);
+  }, [profilPic]);
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);

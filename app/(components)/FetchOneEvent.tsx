@@ -158,8 +158,8 @@ async function FetchOneEvent({ id }: any) {
             <CardHeader>
               <CardTitle> {res.title} </CardTitle>
               <CardDescription className="flex gap-4">
-                Remplacement
-                {/*<span className="flex items-center gap-2">
+                
+                <span className="flex items-center gap-2">
                     <img
                       src="/Images/calendaricon.svg"
                       alt=""
@@ -172,7 +172,7 @@ async function FetchOneEvent({ id }: any) {
                   <span className="flex items-center gap-2">
                     <img src="/Images/mapicon.svg" alt="" className="h-6 w-6" />
                     <p>{res.lieu}</p>
-                  </span> */}
+                  </span> 
               </CardDescription>
             </CardHeader>
             <CardContent>
