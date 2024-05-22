@@ -29,21 +29,17 @@ function PPPourProfil({
   const srcImage2 = useDateStore((state) => state.srcImage2);
   const [profileSrc, setProfileSrc] = useState(profilPic);
 
-
   const setUserId = useDateStore((state) => state.setUserId);
   const userId = useDateStore((state) => state.userId);
   useEffect(() => {
     if (profileSrc) {
       setSrcImage2(profileSrc);
-      setUserId(idOfUser);
-
     }
-  }, [profileSrc, setSrcImage2]);
+  }, [profileSrc, setSrcImage2, idOfUser]);
 
   useEffect(() => {
-    console.log("profileSrc:", profileSrc);
-    console.log("srcImage2:", srcImage2);
-  }, [profileSrc, srcImage2]);
+    setUserId(idOfUser);
+  }, []);
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
@@ -63,6 +59,7 @@ function PPPourProfil({
         className="h-16 w-16 rounded-full border border-gray-200 cursor-pointer"
         onClick={toggleMenu}
       />
+      {idOfUser}
       <AnimatePresence>
         {menuVisible && sessionid !== idOfUser && (
           <motion.div
@@ -86,12 +83,7 @@ function PPPourProfil({
               >
                 Voir messages ({commentFilterBasedOnUser.length})
               </Link>
-              <Link
-                href={`/MonCompte/Rassemblements/${idOfUser}`}
-                className="py-2 px-16 whitespace-nowrap text-center bg-blue-500 text-white rounded hover:bg-blue-600 "
-              >
-                Voir Rassos
-              </Link>
+              
             </div>
           </motion.div>
         )}

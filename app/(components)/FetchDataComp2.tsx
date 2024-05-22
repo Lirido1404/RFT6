@@ -1,7 +1,6 @@
 import React from "react";
 import "../EspaceDeVente/[id]/page.css";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -26,6 +25,7 @@ import { options } from "@/app/api/auth/[...nextauth]/options";
 import AjouterAvis from "./AjouterAvis";
 import PartieScrollArea from "./PartieScrollArea";
 import AnimInset from "./AnimInset";
+import Achat from "./Achat/Achat";
 
 interface Comment {
   _id: string;
@@ -119,9 +119,7 @@ async function FetchDataComp2({ id }: any) {
         {returnLogo()}
       </div>
       <div className="mt-6">
-        <Button variant="destructive" className="text-white">
-          Buy car
-        </Button>
+        <Achat/>
       </div>
       <div className="grid grid-cols-2 mt-10 gap-6">
         <div className="p-0">

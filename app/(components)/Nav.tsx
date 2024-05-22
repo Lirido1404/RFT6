@@ -7,11 +7,32 @@ import "./Nav.css";
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
 import ProfilStats from "./(MonCompte)/ProfilStats";
-
-function Nav({ session,commentOfIdUser,participationOfIdUser }: {session:any,commentOfIdUser:number,participationOfIdUser:number}) {
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+function Nav({
+  session,
+  commentOfIdUser,
+  participationOfIdUser,
+}: {
+  session: any;
+  commentOfIdUser: number;
+  participationOfIdUser: number;
+}) {
   const userImage = session?.user?.image;
   const [dropDown, setDropDown] = useState(false);
   const [showMenu, setShowMenu] = useState(false); // State pour gérer l'affichage du menu déroulant
+  const [showCart, setShowCart] = useState(false); // State pour gérer l'affichage de la section du panier
   const [resPaiement, setResPaiement] = useState(false);
   const userId = session?.user?.id;
   const prenom = session?.user?.name?.split(" ")[0];
@@ -27,14 +48,49 @@ function Nav({ session,commentOfIdUser,participationOfIdUser }: {session:any,com
     setShowMenu(!showMenu); // Inverser l'état d'affichage du menu déroulant
   };
 
+  const toggleCart = () => {
+    setShowCart(!showCart); // Inverser l'état d'affichage de la section du panier
+  };
+
   return (
     <header className="w-full h-20 bg-[#1B1A18]">
       <nav className="flex justify-between w-full h-full items-center">
-        <Link href={"/"} className="ml-32">
-          <Image src="/Images/logocar2.png" width={90} height={90} alt="logo" />
-        </Link>
+        <div className="flex gap-4 items-center relative">
+          <Link href={"/"} className="ml-32">
+            <Image
+              src="/Images/logocar2.png"
+              width={90}
+              height={90}
+              alt="logo"
+            />
+          </Link>
+          
+            <SheetTrigger asChild>
+              <button>
+                <img
+                  src="/Images/shoppingCart.svg"
+                  className="h-10 w-10"
+                  alt=""
+                />
+              </button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Panier</SheetTitle>
+                <SheetDescription>
+                  Votre panier est composé de x éléments.
+                </SheetDescription>
+              </SheetHeader>
+              
+              <SheetFooter>
+                <SheetClose asChild>
+                  <Button type="submit">Payer</Button>
+                </SheetClose>
+              </SheetFooter>
+            </SheetContent>
+        </div>
 
-        <div className="flex gap-6 mr-60">
+        <div className="flex items-center gap-6 mr-60">
           <Link
             href={"/Admin"}
             className="text-white hover:bg-[#545454] py-1 px-4 ease-in-out duration-200 rounded text-lg"
@@ -42,18 +98,19 @@ function Nav({ session,commentOfIdUser,participationOfIdUser }: {session:any,com
             Admin
           </Link>
           <div
-            className="relative d1"
+            className="d1"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <p
+            <Link
+              href="/EspaceDeVente"
               className={`text-white cursor-pointer py-1 px-4 ease-in-out duration-200 rounded text-lg ${
                 dropDown ? "bg-[#363636]" : ""
               }`}
             >
               Espace de vente
-            </p>
-            <div
+            </Link>
+            {/* <div
               className={`absolute top-full left-0 bg-white rounded-md shadow-md opac w-full ${
                 dropDown ? "" : "hidden"
               }`}
@@ -76,7 +133,7 @@ function Nav({ session,commentOfIdUser,participationOfIdUser }: {session:any,com
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div>*/}
           </div>
 
           <Link
@@ -92,9 +149,9 @@ function Nav({ session,commentOfIdUser,participationOfIdUser }: {session:any,com
                 <img
                   src={userImage || "/Images/profilsvg1.svg"}
                   alt=""
-                  className={`w-8 h-8 rounded-full cursor-pointer hover:outline-2 hover:outline-gray-500 outline outline-offset-1 ${showMenu ? "outline-2 outline-[#C91313] " : ""} ${
-                    userImage ? "" : "bg-white p-1"
-                  }  `}
+                  className={`w-8 h-8 rounded-full cursor-pointer hover:outline-2 hover:outline-gray-500 outline outline-offset-1 ${
+                    showMenu ? "outline-2 outline-[#C91313] " : ""
+                  } ${userImage ? "" : "bg-white p-1"}  `}
                   onClick={toggleMenu}
                 />
               </>
@@ -103,9 +160,9 @@ function Nav({ session,commentOfIdUser,participationOfIdUser }: {session:any,com
                 <img
                   src={"/Images/profilsvg2.svg"}
                   alt=""
-                  className={`w-8 h-8 rounded-full cursor-pointer hover:outline-2 hover:outline-gray-500 outline outline-offset-1 ${showMenu ? "outline-2 outline-[#C91313] " : ""} ${
-                    userImage ? "" : "bg-white p-1"
-                  }  `}
+                  className={`w-8 h-8 rounded-full cursor-pointer hover:outline-2 hover:outline-gray-500 outline outline-offset-1 ${
+                    showMenu ? "outline-2 outline-[#C91313] " : ""
+                  } ${userImage ? "" : "bg-white p-1"}  `}
                   onClick={toggleMenu}
                 />
               </>
@@ -142,7 +199,13 @@ function Nav({ session,commentOfIdUser,participationOfIdUser }: {session:any,com
                       )}
                     </div>
 
-                    {session && <ProfilStats userId={userId} commentOfIdUser={commentOfIdUser} participationOfIdUser={participationOfIdUser} />}
+                    {session && (
+                      <ProfilStats
+                        userId={userId}
+                        commentOfIdUser={commentOfIdUser}
+                        participationOfIdUser={participationOfIdUser}
+                      />
+                    )}
                   </div>
                   {resPaiement && (
                     <>

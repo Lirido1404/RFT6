@@ -2,7 +2,8 @@
 import React, { useEffect } from "react";
 import { useDateStore } from "@/app/(store)/store";
 
-function ImgOfProfil({text}:{text:string}) {
+function ImgOfProfil({ text, idOfAccount }: { text: string; idOfAccount:string }) {
+
   const setSrcImage = useDateStore((state) => state.setSrcImage);
   const srcImage = useDateStore((state) => state.srcImage);
 
@@ -16,11 +17,10 @@ function ImgOfProfil({text}:{text:string}) {
     <>
       
       <img
-        src={srcImage2 || srcImage || "/Images/profilsvg1.svg"}
+        src={srcImage || "/Images/profilsvg1.svg"}
         alt=""
         className={`w-40 h-40 rounded-full border`}
       />
-      <p> {text} </p>
     </>
   );
 }

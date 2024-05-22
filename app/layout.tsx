@@ -8,7 +8,9 @@ import AuthProvider from "./(components)/AuthProvider";
 import { Toaster } from "@/components/ui/toaster";
 import AjoutNotifAuth from "./(components)/AjoutNotifAuth";
 import ServNav from "./(components)/ServNav";
-
+import {
+  Sheet,
+} from "@/components/ui/sheet";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -29,16 +31,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={inter.className}>
+      <body className={`${inter.className} relative z-99`}>
         <AuthProvider>
-          <AjoutNotifAuth />
-          <FlecheRemonte />
-          <div>
-            <ServNav/>
-          </div>
-          {children}
-          <Footer />
-          <Toaster />
+          <Sheet>
+            <AjoutNotifAuth />
+            <FlecheRemonte />
+            <div>
+              <ServNav />
+            </div>
+            {children}
+            <Footer />
+            <Toaster />
+          </Sheet>
         </AuthProvider>
       </body>
     </html>

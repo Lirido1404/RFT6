@@ -57,7 +57,7 @@ async function PageComms({ idOfAccount }: { idOfAccount: string }) {
             </>
           ) : (
             <>
-              <ImgOfProfil text="pageComms" />
+              <ImgOfProfil text="pageComms" idOfAccount={idOfAccount} />
             </>
           )}
         </div>
