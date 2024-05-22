@@ -1,30 +1,35 @@
-// store.ts
-
 import { create } from "zustand";
 
 type DateStore = {
   date: string | undefined;
-  newDate: any[] | undefined; // Nouvelle variable pour stocker newdate
-  rechercheTag: string; // Ajout de la variable rechercheTag
+  newDate: any[] | undefined;
+  rechercheTag: string;
+  nomProprio: string | undefined;
+  srcImage: string | undefined;
+  srcImage2: string | undefined;
+  userId: string | undefined;
   setDate: (newDate: string) => void;
-  setNewDate: (newData: any[]) => void; // Fonction pour mettre à jour newDate
-  setRechercheTag: (tag: string) => void; // Fonction pour mettre à jour rechercheTag
-  setNomProprio: (tag: string) => void; // Fonction pour mettre à jour rechercheTag
-  setSrcImage: (tag: string) => void; // Fonction pour mettre à jour rechercheTag
-  nomProprio:string | undefined ;
-  srcImage:string | undefined ;
+  setNewDate: (newData: any[]) => void;
+  setRechercheTag: (tag: string) => void;
+  setNomProprio: (tag: string) => void;
+  setSrcImage: (tag: string) => void;
+  setSrcImage2: (tag: string) => void;
+  setUserId: (tag: string) => void;
 };
 
 export const useDateStore = create<DateStore>((set) => ({
   date: undefined,
   newDate: undefined,
-  rechercheTag: "", // Initialisation de rechercheTag à une chaîne vide
+  rechercheTag: "",
   nomProprio: undefined,
   srcImage: undefined,
+  srcImage2: undefined,
+  userId: undefined,
   setDate: (newDate) => set({ date: newDate }),
   setNewDate: (newData) => set({ newDate: newData }),
-  setRechercheTag: (tag) => set({ rechercheTag: tag }), // Mise à jour de rechercheTag
-
-  setNomProprio:(nom)=>set({nomProprio:nom}),
-  setSrcImage:(src)=>set({srcImage:src})
+  setRechercheTag: (tag) => set({ rechercheTag: tag }),
+  setNomProprio: (nom) => set({ nomProprio: nom }),
+  setSrcImage: (src) => set({ srcImage: src }),
+  setSrcImage2: (src) => set({ srcImage2: src }),
+  setUserId: (id) => set({ userId: id }),
 }));

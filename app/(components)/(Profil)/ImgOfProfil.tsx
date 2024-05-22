@@ -6,12 +6,15 @@ function ImgOfProfil({text}:{text:string}) {
   const setSrcImage = useDateStore((state) => state.setSrcImage);
   const srcImage = useDateStore((state) => state.srcImage);
 
+  const setSrcImage2 = useDateStore((state) => state.setSrcImage2);
+  const srcImage2 = useDateStore((state) => state.srcImage2);
+
   
 
   return (
     <>
       <img
-        src={srcImage || "/Images/profilsvg1.svg"}
+        src={srcImage2 || srcImage || "/Images/profilsvg1.svg"}
         alt=""
         className={`w-40 h-40 rounded-full border`}
       />

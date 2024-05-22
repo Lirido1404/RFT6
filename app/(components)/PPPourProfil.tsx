@@ -6,7 +6,6 @@ import { Separator } from "@/components/ui/separator";
 import { motion, AnimatePresence } from "framer-motion";
 import { useDateStore } from "@/app/(store)/store";
 
-
 function PPPourProfil({
   profilPic,
   idOfUser,
@@ -25,13 +24,21 @@ function PPPourProfil({
   const commentFilterBasedOnUser = allComments.filter(
     (comment: any) => comment.idOfUser === idOfUser
   );
-  
-  const setSrcImage = useDateStore((state) => state.setSrcImage);
-  const srcImage = useDateStore((state) => state.srcImage);
-  
+
+  const setSrcImage2 = useDateStore((state) => state.setSrcImage2);
+  const srcImage2 = useDateStore((state) => state.srcImage2);
+  const [profileSrc, setProfileSrc] = useState(profilPic);
+
   useEffect(() => {
-    setSrcImage(profilPic);
-  }, [profilPic]);
+    if (profileSrc) {
+      setSrcImage2(profileSrc);
+    }
+  }, [profileSrc, setSrcImage2]);
+
+  useEffect(() => {
+    console.log("profileSrc:", profileSrc);
+    console.log("srcImage2:", srcImage2);
+  }, [profileSrc, srcImage2]);
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
