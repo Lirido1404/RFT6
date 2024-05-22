@@ -29,9 +29,14 @@ function PPPourProfil({
   const srcImage2 = useDateStore((state) => state.srcImage2);
   const [profileSrc, setProfileSrc] = useState(profilPic);
 
+
+  const setUserId = useDateStore((state) => state.setUserId);
+  const userId = useDateStore((state) => state.userId);
   useEffect(() => {
     if (profileSrc) {
       setSrcImage2(profileSrc);
+      setUserId(idOfUser);
+
     }
   }, [profileSrc, setSrcImage2]);
 

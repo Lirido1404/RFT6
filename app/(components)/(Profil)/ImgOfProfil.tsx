@@ -9,10 +9,12 @@ function ImgOfProfil({text}:{text:string}) {
   const setSrcImage2 = useDateStore((state) => state.setSrcImage2);
   const srcImage2 = useDateStore((state) => state.srcImage2);
 
-  
+  const setUserId = useDateStore((state) => state.setUserId);
+  const userId = useDateStore((state) => state.userId);
 
   return (
     <>
+      
       <img
         src={srcImage2 || srcImage || "/Images/profilsvg1.svg"}
         alt=""
